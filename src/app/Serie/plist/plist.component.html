@@ -1,0 +1,38 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <mat-paginator class="mb-3"
+                        [length]="series.length"
+                        [pageSize]="page_size"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="handlePage($event)"
+                        showFirstLastButtons>
+            </mat-paginator>
+            <table class="table table-bordered table-striped table-light">
+                <thead class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Sinopsis</th>
+                        <th>Idioma</th>
+                        <th>Duración</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Fecha de Fin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let serie of series | paginate:page_size:page_number">
+                        <td class="text-center">{{serie.id}}</td>
+                        <td class="text-center">{{serie.nombre}}</td>
+                        <td>{{serie.sinopsis_serie}}</td>
+                        <td class="text-center">{{serie.idioma}}</td>
+                        <td class="text-center">{{serie.duracion_media}} min.</td>
+                        <td class="text-center">{{serie.fecha_inicio}}</td>
+                        <td class="text-center">{{serie.fecha_fin}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
