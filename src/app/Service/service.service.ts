@@ -33,7 +33,7 @@ export class ServiceService {
     return this.http.post<any>(this.Url + 'genero/', genero, httpOptions);
   }
 
-  getGeneroById(id: number | String) {
+  getGeneroById(id: number) {
     return this.http.get<Genero>(this.Url+'genero/'+id)
   }
 

@@ -28,12 +28,22 @@ export class PlistGeneroComponent implements OnInit {
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
 
+  verGenero(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["genero/ver", id])
+  }
+
   editarGenero(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["genero/editar",id])
   }
 
-  eliminarGenero(genero: Genero) {
+  eliminarGenero(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["genero/eliminar",id])
+  }
+
+  edliminarGenero(genero: Genero) {
      this.service.deleteGenero(genero)
      .subscribe(data=>{
        this.generos=this.generos.filter(p=>p!==genero);

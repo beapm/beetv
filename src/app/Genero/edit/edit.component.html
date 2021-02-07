@@ -2,7 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <form class="form" action="">
-                <h2>AGREGAR GÉNERO</h2><hr><br>
+                <h2>EDITAR GÉNERO</h2><hr><br>
                 <div class="form-group">
                     <label for="nombre">ID: </label>
                     <input [(ngModel)]="genero.id" name="id" type="text" class="form-controls" readonly>
@@ -18,7 +18,7 @@
                 <hr><br>
                 <div class="form-group">
                     <button class="btn btn-success" (click)="actualizarGenero(genero)">Actualizar</button>
-                    <button class="btn btn-success" (click)="plistGenero()">Atrás</button>
+                    <button class="btn btn-success" (click)="atras()">Atrás</button>
                 </div>
             </form>
         </div>

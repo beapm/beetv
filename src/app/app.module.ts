@@ -24,7 +24,9 @@ import { ViewComponent } from './Serie/view/view.component';
 
 import { NewGeneroComponent } from './Genero/new/new.component';
 import { PlistGeneroComponent } from './Genero/plist/plist.component';
+import { ViewGeneroComponent } from './Genero/view/view.component';
 import { EditGeneroComponent } from './Genero/edit/edit.component';
+import { DeleteGeneroComponent } from './Genero/delete/delete.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { EditGeneroComponent } from './Genero/edit/edit.component';
     ViewComponent,
     NewGeneroComponent,
     PlistGeneroComponent,
+    ViewGeneroComponent,
+    DeleteGeneroComponent,
     EditGeneroComponent
   ],
   imports: [
