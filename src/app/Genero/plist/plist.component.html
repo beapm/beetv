@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <mat-paginator class="mb-3" [length]="generos.length" [pageSize]="page_size"
+                [pageSizeOptions]="pageSizeOptions" (page)="handlePage($event)" showFirstLastButtons>
+            </mat-paginator>
+            <table class="table table-light table-striped table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>SERIES</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let genero of generos | paginate:page_size:page_number">
+                        <td class="text-center">{{genero.id}}</td>
+                        <td class="text-center">{{genero.nombre}}</td>
+                        <td class="text-center">{{genero.series}}</td>
+                        <td class="text-center">
+                            <button class="btn btn-success">
+                                <span class="material-icons" style="vertical-align: middle;">visibility</span>
+                            </button>
+                            <button class="btn btn-warning">
+                                <span class="material-icons" (click)="editarGenero(genero.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="material-icons" (click)="eliminarGenero(genero)" style="vertical-align: middle;">delete</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

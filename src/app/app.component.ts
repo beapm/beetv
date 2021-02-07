@@ -10,8 +10,4 @@ export class AppComponent {
   title = 'beetv';
 
   constructor(private router:Router){}
-
-  plistSerie() {
-    this.router.navigate(["plistSerie"])
-  }
 }

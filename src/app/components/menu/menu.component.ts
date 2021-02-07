@@ -14,7 +14,18 @@ export class MenuComponent implements OnInit {
   }
    
   plistSerie() {
-    this.router.navigate(["plistSerie"])
+    this.router.navigate(["serie/lista"])
   }
 
+  addSerie() {
+    this.router.navigate(["serie/agregar"])
+  }
+
+  plistGenero() {
+    this.router.navigate(["genero/lista"])
+  }
+
+  addGenero() {
+    this.router.navigate(["genero/agregar"])
+  }
 }

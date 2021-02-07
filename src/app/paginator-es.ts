@@ -11,6 +11,8 @@ export class CustomMatPaginatorIntl extends MatPaginatorIntl {
     itemsPerPageLabel = 'Registros por página: ';
     nextPageLabel = 'Página siguiente';
     previousPageLabel = 'Página anterior';
+    lastPageLabel = 'Última página';
+    firstPageLabel = 'Primera página';
 
     getRangeLabel = (page: number, pageSize: number, length: number) => {
         if (length === 0 || pageSize === 0) {

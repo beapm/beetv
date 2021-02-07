@@ -8,15 +8,33 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav w-100">
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['home']" routerLinkActive="active" >Home</a>
+                    <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
                 </li>
-                <ul class="navbar-nav mr-auto">
-                   <li class="nav-item">
-                        <a class="nav-link" (click)="plistSerie()" >Series</a>
-                    </li>
-                </ul>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Géneros
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistGenero()" style="cursor: pointer">Lista de Géneros</a></li>
+                        <li><a class="dropdown-item" (click)="addGenero()" style="cursor: pointer">Agregar Género</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Series
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistSerie()" style="cursor: pointer">Lista de Series</a></li>
+                        <li><a class="dropdown-item" (click)="addSerie()" style="cursor: pointer">Agregar Serie</a></li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['login']" routerLinkActive="active" >Login</a>
+                    <a class="nav-link" [routerLink]="['login']" routerLinkActive="active">Login</a>
                 </li>
             </ul>
 

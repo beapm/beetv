@@ -7,17 +7,25 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceService } from '../app/Service/service.service';
 import { PaginatePipe } from './Pipes/paginate.pipe';
+import { CustomMatPaginatorIntl } from './paginator-es';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon'
 
 import { HomeComponent } from './common/home/home.component';
 import { LoginComponent } from './common/login/login.component';
 import { LogoutComponent } from './common/logout/logout.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { NewComponent } from './Serie/new/new.component';
+
+import { NewSerieComponent } from './Serie/new/new.component';
 import { EditComponent } from './Serie/edit/edit.component';
-import { PlistComponent } from './Serie/plist/plist.component';
+import { PlistSerieComponent } from './Serie/plist/plist.component';
 import { DeleteComponent } from './Serie/delete/delete.component';
-import { CustomMatPaginatorIntl } from './paginator-es';
+import { ViewComponent } from './Serie/view/view.component';
+
+import { NewGeneroComponent } from './Genero/new/new.component';
+import { PlistGeneroComponent } from './Genero/plist/plist.component';
+import { EditGeneroComponent } from './Genero/edit/edit.component';
+
 
 @NgModule({
   declarations: [
@@ -26,11 +34,15 @@ import { CustomMatPaginatorIntl } from './paginator-es';
     LoginComponent,
     LogoutComponent,
     MenuComponent,
-    NewComponent,
+    NewSerieComponent,
     EditComponent,
-    PlistComponent,
+    PlistSerieComponent,
     DeleteComponent,
-    PaginatePipe
+    PaginatePipe,
+    ViewComponent,
+    NewGeneroComponent,
+    PlistGeneroComponent,
+    EditGeneroComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +50,8 @@ import { CustomMatPaginatorIntl } from './paginator-es';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule, 
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule
   ],
   providers: [
     ServiceService,
