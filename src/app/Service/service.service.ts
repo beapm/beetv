@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Serie } from '../Entities/Serie';
 import { Genero } from '../Entities/Genero';
+import { Tipousuario } from '../Entities/Tipousuario';
 
 @Injectable({
   providedIn: 'root'
@@ -10,50 +11,42 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
   Url = 'http://localhost:8082/';
-
-  getSeries() {
-    return this.http.get<Serie[]>(this.Url + 'serie/all');
+ 
+  getById(entidad: String, id: number) {
+    return this.http.get<any>(this.Url+ entidad +'/'+ id)
   }
 
-  getSerieById(id: number | String) {
-    return this.http.get<Serie>(this.Url + '/serie/:id');
+  getPlist(entidad:String) {
+    return this.http.get<any>(this.Url + entidad + '/all');
   }
 
-  getGeneros() {
-    return this.http.get<Genero[]>(this.Url + 'genero/all');
-  }
-
-  addGenero(genero: String) {
+  add(entidad: String, objeto: String) { 
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
       withCredentials: true
     }
-    return this.http.post<any>(this.Url + 'genero/', genero, httpOptions);
+    return this.http.post<any>(this.Url + entidad + '/', objeto, httpOptions);
   }
-
-  getGeneroById(id: number) {
-    return this.http.get<Genero>(this.Url+'genero/'+id)
-  }
-
-  updateGenero(genero: Genero) {
+  
+  update(entidad: String, objeto: String, id: String | null) {
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
       withCredentials: true
     }
-    return this.http.put<Genero>(this.Url+'genero/'+ genero.id, genero, httpOptions)
+    return this.http.put(this.Url+ entidad+'/'+ id, objeto, httpOptions)
   }
 
-  deleteGenero(genero: Genero) {
+  delete(entidad: String, id: number) {
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       }),
       withCredentials: true
     }
-    return this.http.delete<Genero>(this.Url+'genero/'+genero.id, httpOptions)
+    return this.http.delete<any>(this.Url+ entidad + '/'+ id, httpOptions)
   }
 }
