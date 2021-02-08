@@ -13,11 +13,11 @@
                 </div>
                 <div class="form-group">
                     <label for="series">Series: </label>
-                    <input [(ngModel)]="genero.series" name="series" type="text" class="form-controls">
+                    <input [(ngModel)]="genero.series" name="series" type="text" class="form-controls" readonly>
                 </div>
                 <hr><br>
                 <div class="form-group">
-                    <button class="btn btn-success" (click)="actualizarGenero(genero)">Actualizar</button>
+                    <button class="btn btn-success" (click)="actualizarGenero()">Actualizar</button>
                     <button class="btn btn-success" (click)="atras()">Atrás</button>
                 </div>
             </form>

@@ -17,14 +17,11 @@ export class ViewGeneroComponent implements OnInit {
   
   ngOnInit(): void {
     let id=localStorage.getItem("id");
-    this.service.getGeneroById(+id)
+    let entidad="genero"
+    this.service.getById(entidad,+id)
     .subscribe(data=>{
       this.genero=data;
     })
-  }
-
-  plistGenero() {
-    this.router.navigate(["genero/lista"])
   }
 
   editarGenero(id:number) {

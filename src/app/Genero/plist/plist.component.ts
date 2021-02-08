@@ -12,11 +12,12 @@ import { Genero } from '../../Entities/Genero';
 export class PlistGeneroComponent implements OnInit {
 
   generos:Genero[] = Array();
+  entidad="genero";
 
   constructor(private service:ServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.service.getGeneros()
+    this.service.getPlist(this.entidad)
       .subscribe(data => {this.generos = data;});
   }
 
@@ -43,12 +44,4 @@ export class PlistGeneroComponent implements OnInit {
     this.router.navigate(["genero/eliminar",id])
   }
 
-  edliminarGenero(genero: Genero) {
-     this.service.deleteGenero(genero)
-     .subscribe(data=>{
-       this.generos=this.generos.filter(p=>p!==genero);
-       alert("Género eliminado con éxito");
-       this.router.navigate(["genero/lista"])
-     })
-  }
 }

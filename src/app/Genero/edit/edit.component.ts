@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class EditGeneroComponent implements OnInit {
 
   genero: Genero = new Genero();
+  entidad="genero";
   constructor(private router:Router, private service: ServiceService, private _location: Location) { }
 
   ngOnInit(): void {
@@ -20,16 +21,19 @@ export class EditGeneroComponent implements OnInit {
 
   editarGenero() {
     let id=localStorage.getItem("id");
-    this.service.getGeneroById(+id)
+    this.service.getById(this.entidad, +id)
     .subscribe(data=>{
       this.genero=data;
     })
   }
   
-  actualizarGenero(genero:Genero) {
-    this.service.updateGenero(genero)
+  actualizarGenero() {
+    let id=localStorage.getItem("id");
+    let entidad="genero"
+    let objeto=JSON.stringify(this.genero);
+    console.log(id, entidad, objeto)
+    this.service.update(entidad, objeto, id)
     .subscribe(data=>{
-      this.genero=data;
       alert("Actualizado con éxito");
       this.router.navigate(["genero/lista"])
     })

@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class DeleteGeneroComponent implements OnInit {
 
   genero: Genero = new Genero();
+  entidad="genero";
   constructor(private router:Router, private service: ServiceService, private _location: Location) { }
 
   ngOnInit(): void {
@@ -20,14 +21,15 @@ export class DeleteGeneroComponent implements OnInit {
 
   editarGenero() {
     let id=localStorage.getItem("id");
-    this.service.getGeneroById(+id)
+    this.service.getById(this.entidad, +id)
     .subscribe(data=>{
       this.genero=data;
     })
   }
 
   eliminarGenero(genero: Genero) {
-    this.service.deleteGenero(genero)
+    let id=localStorage.getItem("id");
+    this.service.delete(this.entidad, +id)
       .subscribe(data => {
         alert("Género eliminado con éxito");
         this.router.navigate(["genero/lista"])

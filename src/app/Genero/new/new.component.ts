@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class NewGeneroComponent implements OnInit {
 
   genero: Genero = new Genero;
+  entidad="genero";
 
   constructor(private service:ServiceService, private router: Router, private _location: Location) { }
 
@@ -19,8 +20,8 @@ export class NewGeneroComponent implements OnInit {
   }
   
   guardarGenero() {
-    let parameter=JSON.stringify(this.genero);
-     this.service.addGenero(parameter)
+    let objeto=JSON.stringify(this.genero);
+     this.service.add(this.entidad, objeto)
     .subscribe(data=> {
       alert("Agregado con éxito");
       this.router.navigate(["genero/lista"]);
