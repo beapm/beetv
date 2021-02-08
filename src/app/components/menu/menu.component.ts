@@ -28,4 +28,8 @@ export class MenuComponent implements OnInit {
   addGenero() {
     this.router.navigate(["genero/agregar"])
   }
+
+  plistTipousuario() {
+    this.router.navigate(["tipousuario/lista"])
+  }
 }

@@ -28,6 +28,12 @@ import { ViewGeneroComponent } from './Genero/view/view.component';
 import { EditGeneroComponent } from './Genero/edit/edit.component';
 import { DeleteGeneroComponent } from './Genero/delete/delete.component';
 
+import { NewTipousuarioComponent } from './Tipousuario/new/new.component';
+import { PlistTipousuarioComponent } from './Tipousuario/plist/plist.component';
+import { ViewTipousuarioComponent } from './Tipousuario/view/view.component';
+import { EditTipousuarioComponent } from './Tipousuario/edit/edit.component';
+import { DeleteTipousuarioComponent } from './Tipousuario/delete/delete.component';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +52,12 @@ import { DeleteGeneroComponent } from './Genero/delete/delete.component';
     PlistGeneroComponent,
     ViewGeneroComponent,
     DeleteGeneroComponent,
-    EditGeneroComponent
+    EditGeneroComponent,
+    NewTipousuarioComponent,
+    ViewTipousuarioComponent,
+    DeleteTipousuarioComponent,
+    EditTipousuarioComponent,
+    PlistTipousuarioComponent
   ],
   imports: [
     BrowserModule,
