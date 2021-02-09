@@ -6,7 +6,10 @@ import { LoginComponent } from './common/login/login.component';
 import { LogoutComponent } from './common/logout/logout.component';
 
 import { PlistSerieComponent } from './Serie/plist/plist.component';
+import { ViewSerieComponent } from './Serie/view/view.component';
 import { NewSerieComponent } from './Serie/new/new.component';
+import { EditSerieComponent } from './Serie/edit/edit.component';
+import { DeleteSerieComponent } from './Serie/delete/delete.component';
 
 import { PlistGeneroComponent } from './Genero/plist/plist.component';
 import { ViewGeneroComponent } from './Genero/view/view.component';
@@ -24,8 +27,12 @@ const routes: Routes = [
   {path:'home', component: HomeComponent},
   {path:'login', component: LoginComponent},
   {path:'logout', component: LogoutComponent},
+
   {path:'serie/lista', component: PlistSerieComponent},
+  {path:'serie/ver/:id', component: ViewSerieComponent},
   {path:'serie/agregar', component: NewSerieComponent},
+  {path:'serie/editar/:id', component: EditSerieComponent},
+  {path:'serie/eliminar/:id', component: DeleteSerieComponent},
 
   {path:'genero/lista', component: PlistGeneroComponent},
   {path:'genero/ver/:id', component: ViewGeneroComponent},

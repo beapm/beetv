@@ -11,12 +11,13 @@ import { Serie } from '../../Entities/Serie';
 })
 export class PlistSerieComponent implements OnInit {
 
-  series:Serie[] | undefined;
+  series:Serie[] = Array();
+  entidad="serie"
 
   constructor(private service:ServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.service.getSeries()
+    this.service.getPlist(this.entidad)
       .subscribe(data => {this.series = data;});
   }
 
@@ -27,4 +28,19 @@ export class PlistSerieComponent implements OnInit {
   page_size: number = 5;
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
+
+  verSerie(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["serie/ver", id])
+  }
+
+  editarSerie(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["serie/editar",id])
+  }
+
+  eliminarSerie(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["serie/eliminar",id])
+  }
 }

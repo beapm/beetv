@@ -33,15 +33,15 @@
                         <td class="text-center">{{serie.duracion_media}} min.</td>
                         <td class="text-center">{{serie.fecha_inicio | date:'longDate'}}</td>
                         <td class="text-center">{{serie.fecha_fin | date:'longDate'}}</td>
-                        <td class="text-center" style="vertical-align: middle;">
+                        <td class="text-center">
                             <button class="btn btn-success">
-                                <span class="material-icons" style="vertical-align: middle;">visibility</span>
+                                <span class="material-icons" (click)="verSerie(serie.id)" style="vertical-align: middle;">visibility</span>
                             </button>
                             <button class="btn btn-warning">
-                                <span class="material-icons" style="vertical-align: middle;">mode_edit</span>
+                                <span class="material-icons" (click)="editarSerie(serie.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
                             </button>
                             <button class="btn btn-danger">
-                                <span class="material-icons" style="vertical-align: middle;">delete</span>
+                                <span class="material-icons" (click)="eliminarSerie(serie.id)" style="vertical-align: middle;">delete</span>
                             </button>
                         </td>
                     </tr>

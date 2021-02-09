@@ -17,10 +17,10 @@ import { LogoutComponent } from './common/logout/logout.component';
 import { MenuComponent } from './components/menu/menu.component';
 
 import { NewSerieComponent } from './Serie/new/new.component';
-import { EditComponent } from './Serie/edit/edit.component';
+import { EditSerieComponent } from './Serie/edit/edit.component';
 import { PlistSerieComponent } from './Serie/plist/plist.component';
-import { DeleteComponent } from './Serie/delete/delete.component';
-import { ViewComponent } from './Serie/view/view.component';
+import { DeleteSerieComponent } from './Serie/delete/delete.component';
+import { ViewSerieComponent } from './Serie/view/view.component';
 
 import { NewGeneroComponent } from './Genero/new/new.component';
 import { PlistGeneroComponent } from './Genero/plist/plist.component';
@@ -43,11 +43,11 @@ import { DeleteTipousuarioComponent } from './Tipousuario/delete/delete.componen
     LogoutComponent,
     MenuComponent,
     NewSerieComponent,
-    EditComponent,
+    EditSerieComponent,
     PlistSerieComponent,
-    DeleteComponent,
+    DeleteSerieComponent,
+    ViewSerieComponent,
     PaginatePipe,
-    ViewComponent,
     NewGeneroComponent,
     PlistGeneroComponent,
     ViewGeneroComponent,

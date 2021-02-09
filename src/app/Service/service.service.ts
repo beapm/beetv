@@ -13,7 +13,13 @@ export class ServiceService {
   Url = 'http://localhost:8082/';
  
   getById(entidad: String, id: number) {
-    return this.http.get<any>(this.Url+ entidad +'/'+ id)
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      withCredentials: true
+    }
+    return this.http.get<any>(this.Url+ entidad +'/'+ id, httpOptions)
   }
 
   getPlist(entidad:String) {
@@ -48,5 +54,15 @@ export class ServiceService {
       withCredentials: true
     }
     return this.http.delete<any>(this.Url+ entidad + '/'+ id, httpOptions)
+  }
+
+  puntuacionSerie(id:number) {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      withCredentials: true
+    }
+    return this.http.get<any>(this.Url+ 'serie/puntuacion/'+ id, httpOptions)
   }
 }

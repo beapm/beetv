@@ -1,37 +1,51 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <table class="table table-bordered table-striped table-light">
-                <thead class="text-center">
-                    <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>SINOPSIS</th>
-                        <th>IDIOMA</th>
-                        <th>DURACIÓN</th>
-                        <th>FECHA DE INICIO</th>
-                        <th>FECHA DE FIN</th>
-                        <th>ACCIONES</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  <!--  <tr *ngFor="let serie of series | paginate:page_size:page_number">
-                        <td class="text-center">{{serie.id}}</td>
-                        <td class="text-center">{{serie.nombre}}</td>
-                        <td>{{serie.sinopsis_serie}}</td>
-                        <td class="text-center">{{serie.idioma}}</td>
-                        <td class="text-center">{{serie.duracion_media}} min.</td>
-                        <td class="text-center">{{serie.fecha_inicio}}</td>
-                        <td class="text-center">{{serie.fecha_fin}}</td>
-                        <td class="text-center">
-                            <button class="btn btn-success">VER</button>
-                            <button class="btn btn-primary">EDITAR</button>
-                            <button class="btn btn-danger">ELIMINAR</button>
-                        </td>
-                    </tr>-->
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+
+<div class="movie-card">
+  
+    <div class="container">
+      
+      <img src="http://localhost:8082/file/{{imagen}}" alt="cover" class="cover" />
+          
+      <div class="hero">
+              
+        <div class="details">
+        
+          <div class="title1">{{serie.nombre | titlecase}}</div>   
+          
+          <span class="likes">{{nota | number:'1.1-1'}}</span>
+          
+        </div> <!-- end details -->
+        
+      </div> <!-- end hero -->
+      
+      <div class="description">
+        
+        <div class="column1">
+          <span class="tag">{{genero}}</span>
+        </div> <!-- end column1 -->
+        
+        <div class="column2">
+          
+          <p>{{serie.sinopsis_serie}} </p>
+          <p><strong>Idioma</strong>: {{serie.idioma}} </p>
+          <p><strong>Duración</strong>: {{serie.duracion_media}} min.</p>
+          <p><strong>Fecha de inicio</strong>: {{serie.fecha_inicio | date:'longDate'}} </p>
+                   
+          <div class="avatars">
+            <button class="btn">
+                <span class="material-icons" (click)="editarSerie(serie.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+            </button>
+            <button class="btn">
+                <span class="material-icons" (click)="eliminarSerie(serie.id)" style="vertical-align: middle;">delete</span>
+            </button>
+            <button class="btn">
+                <span class="material-icons" (click)="atras()" style="vertical-align: middle;">arrow_back</span>
+            </button>           
+          </div> <!-- end avatars -->
+          
+        </div> <!-- end column2 -->
+      </div> <!-- end description -->
+      
+     
+    </div> <!-- end container -->
+  </div> <!-- end movie-card -->
