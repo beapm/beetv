@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ServiceService } from 'src/app/Service/service.service';
+import { Location } from '@angular/common';
+import { Serie } from 'src/app/Entities/Serie';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  series:Serie[] = Array();
+  entidad="serie";
+
+  constructor(private service:ServiceService, private router: Router, private _location: Location) { }
 
   ngOnInit(): void {
+    this.service.getPlist(this.entidad)
+    .subscribe(data => {this.series = data;});
   }
 
 }
