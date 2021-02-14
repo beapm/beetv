@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form class="form" action="">
+                <h2>ELIMINAR USUARIO</h2><hr><br>
+                <div class="form-group">
+                    <label for="id">ID: </label>
+                    <input [(ngModel)]="usuario.id" name="id" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre: </label>
+                    <input [(ngModel)]="usuario.nombre" name="nombre" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="apellido1">Primer apellido: </label>
+                    <input [(ngModel)]="usuario.apellido1" name="apellido1" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="apellido2">Segundo apellido: </label>
+                    <input [(ngModel)]="usuario.apellido2" name="apellido2" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input [(ngModel)]="usuario.email" name="email" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="login">Username: </label>
+                    <input [(ngModel)]="usuario.login" name="login" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="tipousuario.nombre">Tipousuario: </label>
+                    <input [(ngModel)]="usuario.tipousuario.nombre" name="tipousuario.nombre" type="text" class="form-controls" readonly>
+                </div>
+                <hr><br>
+                <div class="botonera">
+                    <h3>¿Seguro que desea eliminar este objeto? </h3>
+                    <button class="btn btn-success" (click)="eliminar(usuario)">SÍ</button>
+                    <button class="btn btn-success" (click)="atras()">NO</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

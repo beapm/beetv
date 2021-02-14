@@ -28,17 +28,17 @@ export class PlistTipousuarioComponent implements OnInit {
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
 
-  verTipousuario(id:number) {
+  ver(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["tipousuario/ver", id])
   }
 
-  editarTipousuario(id:number) {
+  editar(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["tipousuario/editar",id])
   }
 
-  eliminarTipousuario(id:number) {
+  eliminar(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["tipousuario/eliminar",id])
   }

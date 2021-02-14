@@ -1,5 +1,3 @@
-
-
 <div class="movie-card">
   
     <div class="container">
@@ -14,22 +12,22 @@
           
           <span class="likes">{{nota | number:'1.1-1'}}</span>
           
-        </div> <!-- end details -->
+        </div>
         
-      </div> <!-- end hero -->
+      </div>
       
       <div class="description">
         
         <div class="column1">
           <span class="tag">{{genero}}</span>
-        </div> <!-- end column1 -->
+        </div>
         
         <div class="column2">
           
           <p>{{serie.sinopsis_serie}} </p>
           <p><strong>Idioma</strong>: {{serie.idioma}} </p>
           <p><strong>Duración</strong>: {{serie.duracion_media}} min.</p>
-          <p><strong>Fecha de inicio</strong>: {{serie.fecha_inicio | date:'longDate'}} </p>
+          <p><strong>Fecha de inicio</strong>: {{serie.fecha_inicio | date:'dd/MM/yyyy'}} </p>
                    
           <div class="avatars">
             <button class="btn">
@@ -41,11 +39,9 @@
             <button class="btn">
                 <span class="material-icons" (click)="atras()" style="vertical-align: middle;">arrow_back</span>
             </button>           
-          </div> <!-- end avatars -->
+          </div>
           
-        </div> <!-- end column2 -->
-      </div> <!-- end description -->
-      
-     
-    </div> <!-- end container -->
-  </div> <!-- end movie-card -->
+        </div> 
+      </div>      
+    </div>
+  </div> 

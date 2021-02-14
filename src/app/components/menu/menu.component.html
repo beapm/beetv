@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">BeeTV</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -10,25 +10,42 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
                 </li>
-                
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Usuarios
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistUsuario()" style="cursor: pointer">Lista de
+                                Usuarios</a></li>
+                        <li><a class="dropdown-item" (click)="addUsuario()" style="cursor: pointer">Agregar Usuario</a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Tipousuario
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistTipousuario()" style="cursor: pointer">Lista de Tipousuario</a></li>
+                        <li><a class="dropdown-item" (click)="plistTipousuario()" style="cursor: pointer">Lista de
+                                Tipousuario</a></li>
                     </ul>
                 </li>
-                
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Géneros
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistGenero()" style="cursor: pointer">Lista de Géneros</a></li>
-                        <li><a class="dropdown-item" (click)="addGenero()" style="cursor: pointer">Agregar Género</a></li>
+                        <li><a class="dropdown-item" (click)="plistGenero()" style="cursor: pointer">Lista de
+                                Géneros</a></li>
+                        <li><a class="dropdown-item" (click)="addGenero()" style="cursor: pointer">Agregar Género</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -38,13 +55,87 @@
                         Series
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistSerie()" style="cursor: pointer">Lista de Series</a></li>
+                        <li><a class="dropdown-item" (click)="plistSerie()" style="cursor: pointer">Lista de Series</a>
+                        </li>
                         <li><a class="dropdown-item" (click)="addSerie()" style="cursor: pointer">Agregar Serie</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Temporadas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistTemporada()" style="cursor: pointer">Lista de Temporadas</a></li>
+                        <li><a class="dropdown-item" (click)="addTemporada()" style="cursor: pointer">Agregar Temporada</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Capítulos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistCapitulo()" style="cursor: pointer">Lista de Capítulos</a></li>
+                        <li><a class="dropdown-item" (click)="addCapitulo()" style="cursor: pointer">Agregar Capítulo</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Listas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistLista()" style="cursor: pointer">Lista de Listas</a>
+                        </li>
+                        <li><a class="dropdown-item" (click)="addLista()" style="cursor: pointer">Agregar Listas</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Capítulosvistos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistCapitulovistos()" style="cursor: pointer">Lista de Capítulosvistos</a></li>
+                        <li><a class="dropdown-item" (click)="addCapitulovistos()" style="cursor: pointer">Agregar Capítulosvistos</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Contenidolista
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistContenidolista()" style="cursor: pointer">Lista de Contenidolista</a>
+                        </li>
+                        <li><a class="dropdown-item" (click)="addContenidolista()" style="cursor: pointer">Agregar Capítulos</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Puntuaciónserie
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistPuntuacionserie()" style="cursor: pointer">Lista de Puntuaciónserie</a>
+                        </li>
+                        <li><a class="dropdown-item" (click)="addPuntuacionserie()" style="cursor: pointer">Agregar Puntuaciónserie</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['login']" routerLinkActive="active">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['logout']" routerLinkActive="active">Logout</a>
                 </li>
             </ul>
 

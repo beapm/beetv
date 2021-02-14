@@ -13,12 +13,18 @@ export class HomeComponent implements OnInit {
 
   series:Serie[] = Array();
   entidad="serie";
+  showMore = false;
 
   constructor(private service:ServiceService, private router: Router, private _location: Location) { }
 
   ngOnInit(): void {
     this.service.getPlist(this.entidad)
     .subscribe(data => {this.series = data;});
+  }
+
+  verSerie(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["serie/ver", id])
   }
 
 }

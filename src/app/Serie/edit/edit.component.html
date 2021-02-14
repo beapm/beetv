@@ -1,1 +1,66 @@
-<p>edit works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <form class="form" [formGroup]="formularioSerie" (ngSubmit)="actualizar()">
+                <h2>EDITAR SERIE</h2>
+                <hr><br>
+                <div class="form-group">
+                    <label for="nombre">Nombre: </label>
+                    <input formControlName="nombre" value="{{serie.nombre}}" name="nombre" type="text"
+                        class="form-controls" required>
+                </div>
+                <div class="form-group">
+                    <label for="sinopsis_serie">Sinopsis: </label>
+                    <input formControlName="sinopsis_serie" value="{{serie.sinopsis_serie}}" name="sinopsis_serie"
+                        type="text" class="form-controls">
+                </div>
+
+                <div class="form-group">
+                    <label for="idioma">Idioma: </label>
+                    <input formControlName="idioma" name="idioma" value="{{serie.idioma}}" type="text"
+                        class="form-controls">
+                </div>
+
+                <div class="form-group">
+                    <label for="duracion_media">Duración media: </label>
+                    <input formControlName="duracion_media" value="{{serie.duracion_media}}" name="duracion_media"
+                        type="number" class="form-controls">
+                </div>
+                <div class="form-group">
+                    <label for="fecha_inicio">Fecha de inicio: </label>
+                    <div style="display:inline; width:300px">
+                        <input matInput [matDatepicker]="picker1" formControlName="fecha_inicio"
+                            value="{{serie.fecha_inicio}}">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_fin">Fecha de fin: </label>
+                    <div style="display:inline; width:300px">
+                        <input matInput [matDatepicker]="picker2" formControlName="fecha_fin"
+                            value="{{serie.fecha_fin}}">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div formGroupName="genero">
+                        <div class="form-group">
+                            <label for="genero">Género: </label>
+                            <select formControlName="id" class="form-control" name="id">
+                                <option value="">{{serie.genero.nombre}}</option>
+                                <option *ngFor="let genero of generos" [value]="genero.id">{{genero.nombre}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Actualizar</button>
+                    <button class="btn btn-success" (click)="atras()">Atrás</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

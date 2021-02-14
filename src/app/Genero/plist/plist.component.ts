@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from 'src/app/Entities/Usuario';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Genero } from '../../Entities/Genero';
 
@@ -14,7 +15,19 @@ export class PlistGeneroComponent implements OnInit {
   generos:Genero[] = Array();
   entidad="genero";
 
-  constructor(private service:ServiceService, private router: Router) { }
+  usuario: Usuario | undefined= null;
+
+  constructor(private service:ServiceService, private router: Router, private activatedRoute: ActivatedRoute) {
+    if (!this.activatedRoute.snapshot.data.message) {
+      console.log("no hay session", this.activatedRoute.snapshot.data.message)
+
+    } else {
+      console.log("si hay session", this.activatedRoute.snapshot.data.message)
+      this.usuario = this.activatedRoute.snapshot.data.message;
+      console.log(this.usuario)
+      //router.navigate(['home'])
+    }
+   }
 
   ngOnInit(): void {
     this.service.getPlist(this.entidad)

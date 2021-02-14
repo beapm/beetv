@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Location } from '@angular/common';
 import { Serie } from '../../Entities/Serie';
 import { Genero } from '../../Entities/Genero';
+import { Usuario } from 'src/app/Entities/Usuario';
 
 @Component({
   selector: 'app-view',
@@ -19,7 +20,17 @@ export class ViewSerieComponent implements OnInit {
   genero: String;
   idGenero:number;
 
-  constructor(private service:ServiceService, private router: Router, private _location: Location) { }
+  usuario: Usuario | undefined;
+
+  constructor(private service:ServiceService, private router: Router, private _location: Location, private activatedRoute: ActivatedRoute) { 
+    if (!this.activatedRoute.snapshot.data.message) {
+      console.log("Sesión activa", this.activatedRoute.snapshot.data.message);
+    } else {
+      console.log("Sin sesión", this.activatedRoute.snapshot.data.message)
+      this.usuario = this.activatedRoute.snapshot.data.message;
+      console.log(this.usuario.login)
+    }
+  }
 
   ngOnInit(): void {
     let id=localStorage.getItem("id");
@@ -36,7 +47,6 @@ export class ViewSerieComponent implements OnInit {
       this.serie=data;
       this.nota =data;
     })
-
   }
 
   editarSerie(id:number) {

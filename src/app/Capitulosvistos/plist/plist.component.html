@@ -1,0 +1,44 @@
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <mat-paginator class="mb-3"
+                        [length]="capitulosvistos.length"
+                        [pageSize]="page_size"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="handlePage($event)"
+                        showFirstLastButtons>
+            </mat-paginator>
+            <table class="table table-hover table-striped table-light">
+                <thead class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>USUARIO</th>
+                        <th>CAPÍTULO</th>
+                        <th>VISTO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let caps of capitulosvistos | paginate:page_size:page_number">
+                        <td class="text-center">{{caps.id}}</td>
+                        <td class="text-center">{{caps.usuario.nombre}}</td>
+                        <td style="width: 30%;">{{caps.capitulo.nombre}}</td>
+                        <td class="text-center"><input type="checkbox" name="visto" *ngIf="caps.visto" checked disabled> </td>
+                        <td class="text-center">
+                            <button class="btn btn-success">
+                                <span class="material-icons" (click)="ver(caps.id)" style="vertical-align: middle;">visibility</span>
+                            </button>
+                            <button class="btn btn-warning">
+                                <span class="material-icons" (click)="editar(caps.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="material-icons" (click)="eliminar(caps.id)" style="vertical-align: middle;">delete</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

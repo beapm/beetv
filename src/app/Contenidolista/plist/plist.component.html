@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <mat-paginator class="mb-3"
+                        [length]="contenidos.length"
+                        [pageSize]="page_size"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="handlePage($event)"
+                        showFirstLastButtons>
+            </mat-paginator>
+            <table class="table table-hover table-striped table-light">
+                <thead class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>LISTA</th>
+                        <th>SERIE</th>
+                        <th>SIGUIENDO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cont of contenidos | paginate:page_size:page_number">
+                        <td class="text-center">{{cont.id}}</td>
+                        <td class="text-center">{{cont.lista.nombre}}</td>
+                        <td style="width: 30%;">{{cont.serie.nombre}}</td>
+                        <td class="text-center"><input type="checkbox" name="siguiendo" *ngIf="cont.siguiendo" checked disabled> </td>
+
+                        <td class="text-center">
+                            <button class="btn btn-success">
+                                <span class="material-icons" (click)="ver(cont.id)" style="vertical-align: middle;">visibility</span>
+                            </button>
+                            <button class="btn btn-warning">
+                                <span class="material-icons" (click)="editar(cont.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="material-icons" (click)="eliminar(cont.id)" style="vertical-align: middle;">delete</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

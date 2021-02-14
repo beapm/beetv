@@ -1,1 +1,43 @@
-<p>delete works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 mt-2">
+            <h2>ELIMINAR SERIE</h2><hr>
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <td>{{serie.id}}</td>
+                </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{serie.nombre}}</td>
+                </tr>
+                <tr>
+                    <th>Sinopsis</th>
+                    <td>{{serie.sinopsis_serie}}</td>
+                </tr>
+                <tr>
+                    <th>Idioma</th>
+                    <td>{{serie.idioma}}</td>
+                </tr>
+                <tr>
+                    <th>Duración</th>
+                    <td>{{serie.duracion_media}}</td>
+                </tr>
+                <tr>
+                    <th>Fecha de inicio</th>
+                    <td>{{serie.fecha_inicio}}</td>
+                </tr>
+                <tr>
+                    <th>Fecha de fin</th>
+                    <td>{{serie.fecha_fin}}</td>
+                </tr>
+            </table>
+            <hr><br>
+            <div class="botonera">
+                <h3>¿Seguro que desea eliminar este objeto? </h3>
+                <button class="btn btn-success" (click)="eliminar(serie)">SÍ</button>
+                <button class="btn btn-success" (click)="atras()">NO</button>
+            </div>
+        </div>
+    </div>
+</div>

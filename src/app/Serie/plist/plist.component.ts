@@ -29,17 +29,17 @@ export class PlistSerieComponent implements OnInit {
   page_number: number = 1;
   pageSizeOptions = [5, 10, 20, 50, 100];
 
-  verSerie(id:number) {
+  ver(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["serie/ver", id])
   }
 
-  editarSerie(id:number) {
+  editar(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["serie/editar",id])
   }
 
-  eliminarSerie(id:number) {
+  eliminar(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["serie/eliminar",id])
   }

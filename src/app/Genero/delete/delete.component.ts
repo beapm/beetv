@@ -16,10 +16,10 @@ export class DeleteGeneroComponent implements OnInit {
   constructor(private router:Router, private service: ServiceService, private _location: Location) { }
 
   ngOnInit(): void {
-    this.editarGenero();
+    this.editar();
   }
 
-  editarGenero() {
+  editar() {
     let id=localStorage.getItem("id");
     this.service.getById(this.entidad, +id)
     .subscribe(data=>{
@@ -27,7 +27,7 @@ export class DeleteGeneroComponent implements OnInit {
     })
   }
 
-  eliminarGenero(genero: Genero) {
+  eliminar(genero: Genero) {
     let id=localStorage.getItem("id");
     this.service.delete(this.entidad, +id)
       .subscribe(data => {
