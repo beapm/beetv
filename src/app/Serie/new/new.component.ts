@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { Serie } from 'src/app/Entities/Serie';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Genero } from 'src/app/Entities/Genero';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-new',
@@ -20,7 +22,7 @@ export class NewSerieComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private service: ServiceService, private router: Router, private _location: Location, private formBuilder: FormBuilder) {
+  constructor(private service: ServiceService, private router: Router, private _location: Location, private formBuilder: FormBuilder, public dialog: MatDialog) {
     this.formulario = this.formBuilder.group({
       nombre: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
       sinopsis_serie: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(1000)])],
@@ -44,12 +46,40 @@ export class NewSerieComponent implements OnInit {
   guardar():void {
     this.service.add(this.entidad, this.formulario.value)
     .subscribe(
-        (data) => {console.log('Success!', data), this.router.navigate(['serie/lista'])},
-        (error) => {console.log('error!', error), this.router.navigate(['home'])}
+        (data) => {
+          this.guardado(), 
+          setTimeout(() => {this.router.navigate(['serie/lista']);},2000);
+        },
+        (error) => {
+          this.error(), 
+          setTimeout(() => {this.router.navigate(['home']);},2000);
+        }
       )
   };
 
   atras() {
     this._location.back();
   }
+
+  guardado() {
+    this.dialog.open(ModalGuardado);
+  }
+
+  error() {
+    this.dialog.open(ModalError);
+  }
+
 }
+
+
+@Component({
+  selector: 'modalGuardado',
+  templateUrl: 'modalGuardado.html',
+})
+export class ModalGuardado {}
+
+@Component({
+  selector: 'modalError',
+  templateUrl: 'modalError.html',
+})
+export class ModalError {}

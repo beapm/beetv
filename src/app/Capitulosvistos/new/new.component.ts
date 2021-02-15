@@ -6,6 +6,7 @@ import { Capitulo } from 'src/app/Entities/Capitulo';
 import { Capitulosvistos } from 'src/app/Entities/Capitulosvistos';
 import { Usuario } from 'src/app/Entities/Usuario';
 import { ServiceService } from 'src/app/Service/service.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-new',
@@ -22,7 +23,7 @@ export class NewCapitulosvistosComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private service: ServiceService, private router: Router, private _location: Location, private formBuilder: FormBuilder) {
+  constructor(private service: ServiceService, private router: Router, private _location: Location, private formBuilder: FormBuilder, public dialog: MatDialog) {
     this.formulario = this.formBuilder.group({
       usuario: this.formBuilder.group({
         id: ['', Validators.required]
@@ -42,16 +43,43 @@ export class NewCapitulosvistosComponent implements OnInit {
       .subscribe(data => { this.capitulos = data; });
   }
 
-  guardar() {
+  guardar():void {
     this.service.add(this.entidad, this.formulario.value)
     .subscribe(
-        (data) => {this.router.navigate(['capitulosvistos/lista'])},
-        (error) => {this.router.navigate(['home'])}
+        (data) => {
+          this.guardado(), 
+          setTimeout(() => {this.router.navigate(['capitulosvistos/lista']);},2000);
+        },
+        (error) => {
+          this.error(), 
+          setTimeout(() => {this.router.navigate(['home']);},2000);
+        }
       )
-  }
+  };
 
   atras() {
     this._location.back();
   }
 
+  guardado() {
+    this.dialog.open(ModalGuardado);
+  }
+
+  error() {
+    this.dialog.open(ModalError);
+  }
+
 }
+
+
+@Component({
+  selector: 'modalGuardado',
+  templateUrl: 'modalGuardado.html',
+})
+export class ModalGuardado {}
+
+@Component({
+  selector: 'modalError',
+  templateUrl: 'modalError.html',
+})
+export class ModalError {}

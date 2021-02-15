@@ -14,6 +14,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { ReadmoreComponent } from './components/readmore/readmore.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+
 
 import { HomeComponent } from './common/home/home.component';
 import { LoginComponent } from './common/login/login.component';
@@ -154,7 +158,8 @@ import { InformeslistaComponent } from './components/informeslista/informeslista
     MatIconModule,
     MatDatepickerModule, 
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    NgbModule
   ],
   providers: [
     ServiceService,
