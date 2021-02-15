@@ -30,7 +30,14 @@ export class PlistUsuarioComponent implements OnInit {
   ngOnInit(): void {
     let entidad="usuario"
     this.service.getPlist(entidad)
-      .subscribe(data => {this.usuarios = data;});
+      .subscribe(
+        (data) => {this.usuarios = data,
+            setTimeout(() => { this.router.navigate(['usuario/lista']); }, 2000);
+        },
+        (error) => {
+            this.router.navigate(['home']);;
+        }
+      )
   }
 
   handlePage(e:PageEvent) {
