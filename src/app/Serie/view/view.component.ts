@@ -19,6 +19,7 @@ export class ViewSerieComponent implements OnInit {
   imagen: number=1;
   genero: String;
   idGenero:number;
+  showMore: false;
 
   usuario: Usuario | undefined;
 

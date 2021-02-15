@@ -18,11 +18,11 @@ export class NewSerieComponent implements OnInit {
 
   generos:Genero[] =  Array();
 
-  formularioSerie: FormGroup;
+  formulario: FormGroup;
 
   constructor(private service: ServiceService, private router: Router, private _location: Location, private formBuilder: FormBuilder) {
-    this.formularioSerie = this.formBuilder.group({
-      nombre: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(50)])],
+    this.formulario = this.formBuilder.group({
+      nombre: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(50)])],
       sinopsis_serie: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(1000)])],
       idioma: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(20)])],
       duracion_media: ['', Validators.compose([Validators.required, Validators.min(1), Validators.max(360)])],
@@ -36,22 +36,18 @@ export class NewSerieComponent implements OnInit {
     });
   }
 
-  
   ngOnInit(): void {
-    console.log(JSON.stringify(this.formularioSerie.value));
     this.service.getPlist('genero')
     .subscribe(data => {this.generos = data;});
-    console.log(this.generos);
   }
   
-  guardarSerie() {
-    this.service.add(this.entidad, this.formularioSerie.value)
-      .subscribe(data => {
-        alert("Agregado con éxito");
-        console.log(data)
-        this.router.navigate(["serie/lista"]);
-      })
-  }
+  guardar():void {
+    this.service.add(this.entidad, this.formulario.value)
+    .subscribe(
+        (data) => {console.log('Success!', data), this.router.navigate(['serie/lista'])},
+        (error) => {console.log('error!', error), this.router.navigate(['home'])}
+      )
+  };
 
   atras() {
     this._location.back();

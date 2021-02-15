@@ -1,1 +1,32 @@
-<p>delete works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form class="form" action="">
+                <h2>ELIMINAR CAPITULOSVISTOS</h2><hr><br>
+                <div class="form-group">
+                    <label for="id">ID: </label>
+                    <input [(ngModel)]="capitulosvistos.id" name="id" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Usuario: </label>
+                    <input [(ngModel)]="capitulosvistos.usuario.login" name="nombre" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="apellido1">Capítulo: </label>
+                    <input [(ngModel)]="capitulosvistos.capitulo.nombre" name="apellido1" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="apellido2">Visto: </label>
+                    <input name="apellido2" type="checkbox" name="visto" *ngIf="capitulosvistos.visto" checked disabled  class="form-controls">
+                    <input name="apellido2" type="checkbox" name="visto" *ngIf="!capitulosvistos.visto" disabled  class="form-controls">
+                </div>
+                <hr><br>
+                <div class="botonera">
+                    <h3>¿Seguro que desea eliminar este objeto? </h3>
+                    <button class="btn btn-success" (click)="eliminar(capitulosvistos)">SÍ</button>
+                    <button class="btn btn-success" (click)="atras()">NO</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

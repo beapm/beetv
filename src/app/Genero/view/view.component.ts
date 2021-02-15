@@ -24,12 +24,12 @@ export class ViewGeneroComponent implements OnInit {
     })
   }
 
-  editarGenero(id:number) {
+  editar(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["genero/editar",id])
   }
 
-  eliminarGenero(id:number) {
+  eliminar(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["genero/eliminar",id])
   }

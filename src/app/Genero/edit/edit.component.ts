@@ -16,10 +16,10 @@ export class EditGeneroComponent implements OnInit {
   constructor(private router:Router, private service: ServiceService, private _location: Location) { }
 
   ngOnInit(): void {
-    this.editarGenero();
+    this.editar();
   }
 
-  editarGenero() {
+  editar() {
     let id=localStorage.getItem("id");
     this.service.getById(this.entidad, +id)
     .subscribe(data=>{
@@ -27,7 +27,7 @@ export class EditGeneroComponent implements OnInit {
     })
   }
   
-  actualizarGenero() {
+  actualizar() {
     let id=localStorage.getItem("id");
     let entidad="genero"
     let objeto=JSON.stringify(this.genero);

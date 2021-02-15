@@ -1,1 +1,35 @@
-<p>delete works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form class="form" action="">
+                <h2>ELIMINAR TEMPORADA</h2><hr><br>
+                <div class="form-group">
+                    <label for="id">ID: </label>
+                    <input [(ngModel)]="temporada.id" name="id" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="serie.nombre">Serie: </label>
+                    <input [(ngModel)]="temporada.serie.nombre" name="serie.nombre" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_inicio">Fecha de inicio: </label>
+                    <input [ngModel]="temporada.fecha_inicio | date:'dd-MM-yyyy'" name="fecha_inicio" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_fin">Fecha de fin: </label>
+                    <input [ngModel]="temporada.fecha_fin  | date:'dd-MM-yyyy'" name="fecha_fin" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="capitulos">Capítulos: </label>
+                    <input [(ngModel)]="temporada.capitulos" name="capitulos" type="text" class="form-controls" readonly>
+                </div>
+                <hr><br>
+                <div class="botonera">
+                    <h3>¿Seguro que desea eliminar este objeto? </h3>
+                    <button class="btn btn-success" (click)="eliminar(temporada)">SÍ</button>
+                    <button class="btn btn-success" (click)="atras()">NO</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

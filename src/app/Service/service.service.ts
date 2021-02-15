@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Serie } from '../Entities/Serie';
-import { Genero } from '../Entities/Genero';
-import { Tipousuario } from '../Entities/Tipousuario';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Usuario } from '../Entities/Usuario';
@@ -24,7 +21,6 @@ export class ServiceService {
       responseType: 'json',
       withCredentials: true
     });
-
   }
 
   checkSession(): Observable<any> {
@@ -42,7 +38,6 @@ export class ServiceService {
       })); 
   }
 
-
   logout() {
     return this.http.delete(this.Url + 'session/', {
       headers: new HttpHeaders({
@@ -53,7 +48,6 @@ export class ServiceService {
       withCredentials: true
     });
   }
-
 
   getById(entidad: String, id: number) {
     let httpOptions = {
@@ -113,5 +107,15 @@ export class ServiceService {
       withCredentials: true
     }
     return this.http.get<any>(this.Url + 'serie/puntuacion/' + id, httpOptions)
+  }
+
+  seriesMasPuntuadas() {
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      withCredentials: true
+    }
+    return this.http.get<any>(this.Url + 'serie/maspuntuadas', httpOptions)
   }
 }

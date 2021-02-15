@@ -1,1 +1,94 @@
-<p>new works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <form class="form" [formGroup]="formulario" (ngSubmit)="guardar()">
+                <h2>AGREGAR CAPÍTULO</h2>
+                <hr><br>
+                <div class="form-group">
+                    <label for="nombre">Nombre: </label>
+                    <input formControlName="nombre" name="nombre" type="text" class="form-controls" required>
+                    <div class="alert" *ngIf="formulario.get('nombre').invalid">
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('nombre').hasError('required') && formulario.get('nombre').touched">
+                            Este campo debe ser rellenado
+                        </div>
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('nombre').hasError('minlength') && formulario.get('nombre').touched">
+                            Este campo debe tener más de 3 caracteres
+                        </div>
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('nombre').hasError('maxlength') && formulario.get('nombre').touched">
+                            Este campo debe tener menos de 50 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sinopsis_capitulo">Sinopsis: </label>
+                    <input formControlName="sinopsis_capitulo" name="sinopsis_capitulo" type="text" class="form-controls">
+                    <div class="alert" *ngIf="formulario.get('sinopsis_capitulo').invalid">
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('sinopsis_capitulo').hasError('required') && formulario.get('sinopsis_capitulo').touched">
+                            Este campo debe ser rellenado
+                        </div>
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('sinopsis_capitulo').hasError('minlength') && formulario.get('sinopsis_capitulo').touched">
+                            Este campo debe tener más de 5 caracteres
+                        </div>
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('sinopsis_capitulo').hasError('maxlength') && formulario.get('sinopsis_capitulo').touched">
+                            Este campo debe tener menos de 1000 caracteres
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_emision">Fecha de emisión: </label>
+                    <div style="display:inline; width:300px">
+                        <input matInput [matDatepicker]="picker1" formControlName="fecha_emision">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="duracion">Duración: </label>
+                    <input formControlName="duracion" name="duracion" type="number" class="form-controls">
+                    <div class="alert" *ngIf="formulario.get('duracion').invalid">
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('duracion').hasError('required') && formulario.get('duracion').touched">
+                            Este campo debe ser rellenado
+                        </div>
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('duracion').hasError('min') && formulario.get('duracion').touched">
+                            El número introducido debe ser mayor de 0
+                        </div>
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('duracion').hasError('max') && formulario.get('duracion').touched">
+                            El número introducido debe ser menor de 360
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div formGroupName="temporada">
+                        <div class="form-group">
+                            <label for="temporada">Temporada: </label>
+                            <select formControlName="id" class="form-control" name="id">
+                                <option *ngFor="let temporada of temporadas" [value]="temporada.id">{{temporada.serie.nombre}} - {{temporada.descripcion}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="alert" *ngIf="formulario.get('temporada.id').invalid">
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('temporada.id').hasError('required') && formulario.get('temporada.id').touched">
+                            Este campo debe ser rellenado
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Guardar</button>
+                    <button class="btn btn-success" (click)="atras()">Atrás</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

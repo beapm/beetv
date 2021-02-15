@@ -1,23 +1,23 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-7">
-            <form class="form" [formGroup]="formularioSerie" (ngSubmit)="guardarSerie()">
+            <form class="form" [formGroup]="formulario" (ngSubmit)="guardar()">
                 <h2>AGREGAR SERIE</h2>
                 <hr><br>
                 <div class="form-group">
                     <label for="nombre">Nombre: </label>
                     <input formControlName="nombre" name="nombre" type="text" class="form-controls" required>
-                    <div class="alert" *ngIf="formularioSerie.get('nombre').invalid">
+                    <div class="alert" *ngIf="formulario.get('nombre').invalid">
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('nombre').hasError('required') && formularioSerie.get('nombre').touched">
+                            *ngIf="formulario.get('nombre').hasError('required') && formulario.get('nombre').touched">
                             Este campo debe ser rellenado
                         </div>
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('nombre').hasError('minlength') && formularioSerie.get('nombre').touched">
-                            Este campo debe tener más de 5 caracteres
+                            *ngIf="formulario.get('nombre').hasError('minlength') && formulario.get('nombre').touched">
+                            Este campo debe tener más de 3 caracteres
                         </div>
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('nombre').hasError('maxlength') && formularioSerie.get('nombre').touched">
+                            *ngIf="formulario.get('nombre').hasError('maxlength') && formulario.get('nombre').touched">
                             Este campo debe tener menos de 50 caracteres
                         </div>
                     </div>
@@ -25,17 +25,17 @@
                 <div class="form-group">
                     <label for="sinopsis_serie">Sinopsis: </label>
                     <input formControlName="sinopsis_serie" name="sinopsis_serie" type="text" class="form-controls">
-                    <div class="alert" *ngIf="formularioSerie.get('sinopsis_serie').invalid">
+                    <div class="alert" *ngIf="formulario.get('sinopsis_serie').invalid">
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('sinopsis_serie').hasError('required') && formularioSerie.get('sinopsis_serie').touched">
+                            *ngIf="formulario.get('sinopsis_serie').hasError('required') && formulario.get('sinopsis_serie').touched">
                             Este campo debe ser rellenado
                         </div>
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('sinopsis_serie').hasError('minlength') && formularioSerie.get('sinopsis_serie').touched">
+                            *ngIf="formulario.get('sinopsis_serie').hasError('minlength') && formulario.get('sinopsis_serie').touched">
                             Este campo debe tener más de 5 caracteres
                         </div>
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('sinopsis_serie').hasError('maxlength') && formularioSerie.get('sinopsis_serie').touched">
+                            *ngIf="formulario.get('sinopsis_serie').hasError('maxlength') && formulario.get('sinopsis_serie').touched">
                             Este campo debe tener menos de 1000 caracteres
                         </div>
                     </div>
@@ -44,17 +44,17 @@
                 <div class="form-group">
                     <label for="idioma">Idioma: </label>
                     <input formControlName="idioma" name="idioma" type="text" class="form-controls">
-                    <div class="alert" *ngIf="formularioSerie.get('idioma').invalid">
+                    <div class="alert" *ngIf="formulario.get('idioma').invalid">
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('idioma').hasError('required') && formularioSerie.get('idioma').touched">
+                            *ngIf="formulario.get('idioma').hasError('required') && formulario.get('idioma').touched">
                             Este campo debe ser rellenado
                         </div>
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('idioma').hasError('minlength') && formularioSerie.get('idioma').touched">
+                            *ngIf="formulario.get('idioma').hasError('minlength') && formulario.get('idioma').touched">
                             Este campo debe tener más de 5 caracteres
                         </div>
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('idioma').hasError('maxlength') && formularioSerie.get('idioma').touched">
+                            *ngIf="formulario.get('idioma').hasError('maxlength') && formulario.get('idioma').touched">
                             Este campo debe tener menos de 20 caracteres
                         </div>
                     </div>
@@ -63,17 +63,17 @@
                 <div class="form-group">
                     <label for="duracion_media">Duración media: </label>
                     <input formControlName="duracion_media" name="duracion_media" type="number" class="form-controls">
-                    <div class="alert" *ngIf="formularioSerie.get('duracion_media').invalid">
+                    <div class="alert" *ngIf="formulario.get('duracion_media').invalid">
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('duracion_media').hasError('required') && formularioSerie.get('duracion_media').touched">
+                            *ngIf="formulario.get('duracion_media').hasError('required') && formulario.get('duracion_media').touched">
                             Este campo debe ser rellenado
                         </div>
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('duracion_media').hasError('min') && formularioSerie.get('duracion_media').touched">
+                            *ngIf="formulario.get('duracion_media').hasError('min') && formulario.get('duracion_media').touched">
                             El número introducido debe ser mayor de 0
                         </div>
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('duracion_media').hasError('max') && formularioSerie.get('duracion_media').touched">
+                            *ngIf="formulario.get('duracion_media').hasError('max') && formulario.get('duracion_media').touched">
                             El número introducido debe ser menor de 360
                         </div>
                     </div>
@@ -103,17 +103,18 @@
                             </select>
                         </div>
                     </div>
-                    <div class="alert" *ngIf="formularioSerie.get('genero.id').invalid">
+                    <div class="alert" *ngIf="formulario.get('genero.id').invalid">
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioSerie.get('genero.id').hasError('required') && formularioSerie.get('genero.id').touched">
+                            *ngIf="formulario.get('genero.id').hasError('required') && formulario.get('genero.id').touched">
                             Este campo debe ser rellenado
                         </div>
                     </div>
                 </div>
-
-
-                <button class="btn btn-success" type="submit">Guardar</button>
-                <button class="btn btn-success" (click)="atras()">Atrás</button>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Guardar</button>
+                    <button class="btn btn-success" (click)="atras()">Atrás</button>
+                </div>
             </form>
         </div>
     </div>

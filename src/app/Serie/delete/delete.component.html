@@ -1,43 +1,43 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-6 mt-2">
-            <h2>ELIMINAR SERIE</h2><hr>
-            <table class="table">
-                <tr>
-                    <th>ID</th>
-                    <td>{{serie.id}}</td>
-                </tr>
-                <tr>
-                    <th>Nombre</th>
-                    <td>{{serie.nombre}}</td>
-                </tr>
-                <tr>
-                    <th>Sinopsis</th>
-                    <td>{{serie.sinopsis_serie}}</td>
-                </tr>
-                <tr>
-                    <th>Idioma</th>
-                    <td>{{serie.idioma}}</td>
-                </tr>
-                <tr>
-                    <th>Duración</th>
-                    <td>{{serie.duracion_media}}</td>
-                </tr>
-                <tr>
-                    <th>Fecha de inicio</th>
-                    <td>{{serie.fecha_inicio}}</td>
-                </tr>
-                <tr>
-                    <th>Fecha de fin</th>
-                    <td>{{serie.fecha_fin}}</td>
-                </tr>
-            </table>
-            <hr><br>
-            <div class="botonera">
-                <h3>¿Seguro que desea eliminar este objeto? </h3>
-                <button class="btn btn-success" (click)="eliminar(serie)">SÍ</button>
-                <button class="btn btn-success" (click)="atras()">NO</button>
-            </div>
+        <div class="col-6">
+            <form class="form" action="">
+                <h2>ELIMINAR SERIE</h2><hr><br>
+                <div class="form-group">
+                    <label for="id">ID: </label>
+                    <input [(ngModel)]="serie.id" name="id" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre: </label>
+                    <input [(ngModel)]="serie.nombre" name="nombre" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="apellido1">Sinopsis: </label>
+                    <textarea [(ngModel)]="serie.sinopsis_serie" name="apellido1" type="text" class="form-controls" readonly></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="apellido2">Idioma: </label>
+                    <input [(ngModel)]="serie.idioma" name="apellido2" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="email">Duración: </label>
+                    <input [ngModel]="serie.duracion_media + ' min.'" name="text" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="login">Fecha de inicio: </label>
+                    <input [ngModel]="serie.fecha_inicio | date: 'dd/MM/yyyy'" name="login" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="tipousuario.nombre">Fecha de fin: </label>
+                    <input [ngModel]="serie.fecha_fin | date: 'dd/MM/yyyy'" name="tipousuario.nombre" type="text" class="form-controls" readonly>
+                </div>
+                <hr><br>
+                <div class="botonera">
+                    <h3>¿Seguro que desea eliminar este objeto? </h3>
+                    <button class="btn btn-success" (click)="eliminar(serie)">SÍ</button>
+                    <button class="btn btn-success" (click)="atras()">NO</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

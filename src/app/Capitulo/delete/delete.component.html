@@ -1,1 +1,43 @@
-<p>delete works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form class="form" action="">
+                <h2>ELIMINAR USUARIO</h2><hr><br>
+                <div class="form-group">
+                    <label for="id">ID: </label>
+                    <input [(ngModel)]="capitulo.id" name="id" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre: </label>
+                    <input [(ngModel)]="capitulo.nombre" name="nombre" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="sinopsis_capitulo">Sinopsis: </label>
+                    <input [(ngModel)]="capitulo.sinopsis_capitulo" name="sinopsis_capitulo" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="duracion">Duración: </label>
+                    <input [(ngModel)]="capitulo.duracion" name="duracion" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_emision">Fecha de emisión: </label>
+                    <input [ngModel]="capitulo.fecha_emision | date: 'dd/MM/yyyy'" name="fecha_emision" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="temporada.id">Temporada: </label>
+                    <input [(ngModel)]="capitulo.temporada.id" name="temporada.id" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="vecesvistos">Veces visto: </label>
+                    <input [(ngModel)]="capitulo.vecesvisto" name="vecesvistos" type="text" class="form-controls" readonly>
+                </div>
+                <hr><br>
+                <div class="botonera">
+                    <h3>¿Seguro que desea eliminar este objeto? </h3>
+                    <button class="btn btn-success" (click)="eliminar(capitulo)">SÍ</button>
+                    <button class="btn btn-success" (click)="atras()">NO</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

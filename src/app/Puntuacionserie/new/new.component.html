@@ -1,1 +1,65 @@
-<p>new works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <form class="form" [formGroup]="formulario" (ngSubmit)="guardar()">
+                <h2>AGREGAR PUNTUACIONSERIE</h2>
+                <hr><br>
+                <div class="form-group">
+                    <label for="puntuacion">Puntuacion: </label>
+                    <input formControlName="puntuacion" name="nombre" type="text" class="form-controls" required>
+                    <div class="alert" *ngIf="formulario.get('puntuacion').invalid">
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('puntuacion').hasError('required') && formulario.get('puntuacion').touched">
+                            Este campo debe ser rellenado
+                        </div>
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('puntuacion').hasError('min') && formulario.get('puntuacion').touched">
+                            Este campo debe ser mayor de 0
+                        </div>
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('puntuacion').hasError('max') && formulario.get('puntuacion').touched">
+                            Este campo debe ser menor de 6
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div formGroupName="serie">
+                        <div class="form-group">
+                            <label for="serie">Serie: </label>
+                            <select formControlName="id" class="form-control" name="id">
+                                <option *ngFor="let serie of series" [value]="serie.id">{{serie.nombre}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="alert" *ngIf="formulario.get('serie.id').invalid">
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('serie.id').hasError('required') && formulario.get('serie.id').touched">
+                            Este campo debe ser rellenado
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div formGroupName="usuario">
+                        <div class="form-group">
+                            <label for="usuario">Usuario: </label>
+                            <select formControlName="id" class="form-control" name="id">
+                                <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{usuario.login}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="alert" *ngIf="formulario.get('usuario.id').invalid">
+                        <div class="alert-danger alert-custom"
+                            *ngIf="formulario.get('usuario.id').hasError('required') && formulario.get('usuario.id').touched">
+                            Este campo debe ser rellenado
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Guardar</button>
+                    <button class="btn btn-success" (click)="atras()">Atrás</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

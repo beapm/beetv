@@ -20,12 +20,10 @@ export class PlistListaComponent implements OnInit {
   constructor(private service:ServiceService, private router: Router, private activatedRoute: ActivatedRoute) { 
     if (!this.activatedRoute.snapshot.data.message) {
       console.log("no hay session", this.activatedRoute.snapshot.data.message)
-
     } else {
       console.log("si hay session", this.activatedRoute.snapshot.data.message)
       this.usuario = this.activatedRoute.snapshot.data.message;
       console.log(this.usuario)
-      //router.navigate(['home'])
     }
   }
 

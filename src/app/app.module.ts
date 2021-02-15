@@ -33,7 +33,6 @@ import { EditGeneroComponent } from './Genero/edit/edit.component';
 import { DeleteGeneroComponent } from './Genero/delete/delete.component';
 
 import { PlistTipousuarioComponent } from './Tipousuario/plist/plist.component';
-import { NewTipousuarioComponent } from './Tipousuario/new/new.component';
 import { ViewTipousuarioComponent } from './Tipousuario/view/view.component';
 import { EditTipousuarioComponent } from './Tipousuario/edit/edit.component';
 import { DeleteTipousuarioComponent } from './Tipousuario/delete/delete.component';
@@ -63,22 +62,23 @@ import { EditCapitulosvistosComponent } from './Capitulosvistos/edit/edit.compon
 import { DeleteCapitulosvistosComponent } from './Capitulosvistos/delete/delete.component';
 
 import { PlistPuntuacionserieComponent } from './Puntuacionserie/plist/plist.component';
-import { NewPuntuacionserieComponent } from './Puntuacionserie/new/new.component';
-import { ViewPuntuacionserieComponent } from './Puntuacionserie/view/view.component';
-import { EditPuntuacionserieComponent } from './Puntuacionserie/edit/edit.component';
-import { DeletePuntuacionserieComponent } from './Puntuacionserie/delete/delete.component';
+import {   NewPuntuacionserieComponent } from './Puntuacionserie/new/new.component';
+import {  ViewPuntuacionserieComponent } from './Puntuacionserie/view/view.component';
+import {  EditPuntuacionserieComponent } from './Puntuacionserie/edit/edit.component';
+import {DeletePuntuacionserieComponent } from './Puntuacionserie/delete/delete.component';
 
 import { PlistListaComponent } from './Lista/plist/plist.component';
-import { NewListaComponent } from './Lista/new/new.component';
-import { ViewListaComponent } from './Lista/view/view.component';
-import { EditListaComponent } from './Lista/edit/edit.component';
-import { DeleteListaComponent } from './Lista/delete/delete.component';
+import {   NewListaComponent } from './Lista/new/new.component';
+import {  ViewListaComponent } from './Lista/view/view.component';
+import {  EditListaComponent } from './Lista/edit/edit.component';
+import {DeleteListaComponent } from './Lista/delete/delete.component';
 
 import { PlistContenidolistaComponent } from './Contenidolista/plist/plist.component';
-import { NewContenidolistaComponent } from './Contenidolista/new/new.component';
-import { ViewContenidolistaComponent } from './Contenidolista/view/view.component';
-import { EditContenidolistaComponent } from './Contenidolista/edit/edit.component';
-import { DeleteContenidolistaComponent } from './Contenidolista/delete/delete.component';
+import {   NewContenidolistaComponent } from './Contenidolista/new/new.component';
+import {  ViewContenidolistaComponent } from './Contenidolista/view/view.component';
+import {  EditContenidolistaComponent } from './Contenidolista/edit/edit.component';
+import {DeleteContenidolistaComponent } from './Contenidolista/delete/delete.component';
+import { InformeslistaComponent } from './components/informeslista/informeslista.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +98,6 @@ import { DeleteContenidolistaComponent } from './Contenidolista/delete/delete.co
     ViewGeneroComponent,
     DeleteGeneroComponent,
     EditGeneroComponent,
-    NewTipousuarioComponent,
     ViewTipousuarioComponent,
     DeleteTipousuarioComponent,
     EditTipousuarioComponent,
@@ -121,26 +120,27 @@ import { DeleteContenidolistaComponent } from './Contenidolista/delete/delete.co
     ViewCapituloComponent,
     DeleteCapituloComponent,
     PlistCapitulosvistosComponent,
-    NewCapitulosvistosComponent,
-    EditCapitulosvistosComponent,
-    ViewCapitulosvistosComponent,
-    DeleteCapitulosvistosComponent,
+      NewCapitulosvistosComponent,
+     EditCapitulosvistosComponent,
+     ViewCapitulosvistosComponent,
+   DeleteCapitulosvistosComponent,
     PlistPuntuacionserieComponent,
-    NewPuntuacionserieComponent,
-    EditPuntuacionserieComponent,
-    ViewPuntuacionserieComponent,
-    DeletePuntuacionserieComponent,
+      NewPuntuacionserieComponent,
+     EditPuntuacionserieComponent,
+     ViewPuntuacionserieComponent,
+   DeletePuntuacionserieComponent,
     PlistListaComponent,
-    NewListaComponent,
-    EditListaComponent,
-    ViewListaComponent,
-    DeleteListaComponent,
+      NewListaComponent,
+     EditListaComponent,
+     ViewListaComponent,
+   DeleteListaComponent,
     PlistContenidolistaComponent,
-    NewContenidolistaComponent,
-    EditContenidolistaComponent,
-    ViewContenidolistaComponent,
-    DeleteContenidolistaComponent,
-
+      NewContenidolistaComponent,
+     EditContenidolistaComponent,
+     ViewContenidolistaComponent,
+   DeleteContenidolistaComponent,
+   InformeslistaComponent,
+ 
 
   ],
   imports: [
@@ -149,17 +149,17 @@ import { DeleteContenidolistaComponent } from './Contenidolista/delete/delete.co
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, 
     MatPaginatorModule,
     MatIconModule,
-    MatDatepickerModule,
+    MatDatepickerModule, 
     MatNativeDateModule,
     MatSelectModule
   ],
   providers: [
     ServiceService,
     {
-      provide: MatPaginatorIntl,
+      provide: MatPaginatorIntl, 
       useClass: CustomMatPaginatorIntl
     }],
   bootstrap: [AppComponent]

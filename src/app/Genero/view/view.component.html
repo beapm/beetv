@@ -1,6 +1,7 @@
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
         <div class="col-8">
+            <h1 class="text-center">VISTA DE GÉNERO</h1>
             <table class="table table-light table-striped table-hover">
                 <thead class="text-center">
                     <tr>
@@ -19,10 +20,10 @@
             </table>
             <div class="botonera">
                 <button class="btn">
-                    <span class="material-icons" (click)="editarGenero(genero.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+                    <span class="material-icons" (click)="editar(genero.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
                 </button>
                 <button class="btn">
-                    <span class="material-icons" (click)="eliminarGenero(genero.id)" style="vertical-align: middle;">delete</span>
+                    <span class="material-icons" (click)="eliminar(genero.id)" style="vertical-align: middle;">delete</span>
                 </button>
                 <button class="btn">
                     <span class="material-icons" (click)="atras()" style="vertical-align: middle;">arrow_back</span>

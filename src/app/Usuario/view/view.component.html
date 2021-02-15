@@ -1,1 +1,52 @@
-<p>view works!</p>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12">
+            <h1 class="text-center">VISTA DE USUARIO</h1>
+            <table class="table table-light table-striped table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>LOGIN</th>
+                        <th>EMAIL</th>
+                        <th>TIPOUSUARIO</th>
+                        <th>Nº LISTAS</th>
+                        <th>Nº PUNTUACIONES</th>
+                        <th>VALIDADO</th>
+                        <th>ACTIVO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">{{usuario.id}}</td>
+                        <td class="text-center">{{usuario.nombre}} {{usuario.apellido1}} {{usuario.apellido2}}</td>
+                        <td class="text-center">{{usuario.login}}</td>
+                        <td class="text-center">{{usuario.email}}</td>
+                        <td class="text-center">{{usuario.tipousuario.nombre}}</td>
+                        <td class="text-center">{{usuario.listas}}</td>
+                        <td class="text-center">{{usuario.puntuaciones}}</td>
+                        <td class="text-center">
+                            <input type="checkbox" name="validado" *ngIf="usuario.validado" checked disabled>
+                            <input type="checkbox" name="validado" *ngIf="!usuario.validado"  disabled>
+                        </td>
+                        <td class="text-center">
+                            <input type="checkbox" name="activo" *ngIf="usuario.activo" checked disabled>
+                            <input type="checkbox" name="activo" *ngIf="!usuario.activo"  disabled>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="botonera">
+                <button class="btn">
+                    <span class="material-icons" (click)="editar(usuario.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+                </button>
+                <button class="btn">
+                    <span class="material-icons" (click)="eliminar(usuario.id)" style="vertical-align: middle;">delete</span>
+                </button>
+                <button class="btn">
+                    <span class="material-icons" (click)="atras()" style="vertical-align: middle;">arrow_back</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

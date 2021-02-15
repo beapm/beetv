@@ -9,5 +9,5 @@ export class Capitulo {
     duracion: number | undefined;
     temporada: Temporada | undefined;
     id_file: number | undefined;
-    vecesvistos: Array<Capitulosvistos> | undefined;
+    vecesvisto: Array<Capitulosvistos> | undefined;
 }

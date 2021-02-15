@@ -21,7 +21,6 @@ import { DeleteGeneroComponent } from './Genero/delete/delete.component';
 import { PlistTipousuarioComponent } from './Tipousuario/plist/plist.component';
 import { DeleteTipousuarioComponent } from './Tipousuario/delete/delete.component';
 import { EditTipousuarioComponent } from './Tipousuario/edit/edit.component';
-import { NewTipousuarioComponent } from './Tipousuario/new/new.component';
 import { ViewTipousuarioComponent } from './Tipousuario/view/view.component';
 
 import { PlistUsuarioComponent } from './Usuario/plist/plist.component';
@@ -66,8 +65,11 @@ import { ViewPuntuacionserieComponent } from './Puntuacionserie/view/view.compon
 import { EditPuntuacionserieComponent } from './Puntuacionserie/edit/edit.component';
 import { DeletePuntuacionserieComponent } from './Puntuacionserie/delete/delete.component';
 
+import { InformeslistaComponent } from './components/informeslista/informeslista.component'
+
 const routes: Routes = [
 
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent, resolve: { message: ResolverService } },
   { path: 'logout', component: LogoutComponent },
@@ -86,7 +88,6 @@ const routes: Routes = [
 
   { path: 'tipousuario/lista', component: PlistTipousuarioComponent },
   { path: 'tipousuario/ver/:id', component: ViewTipousuarioComponent },
-  { path: 'tipousuario/agregar', component: NewTipousuarioComponent },
   { path: 'tipousuario/editar/:id', component: EditTipousuarioComponent },
   { path: 'tipousuario/eliminar/:id', component: DeleteTipousuarioComponent },
 
@@ -131,6 +132,8 @@ const routes: Routes = [
   { path: 'contenidolista/agregar', component: NewContenidolistaComponent },
   { path: 'contenidolista/editar/:id', component: EditContenidolistaComponent },
   { path: 'contenidolista/eliminar/:id', component: DeleteContenidolistaComponent },
+
+  { path: 'informes', component: InformeslistaComponent },
 ];
 
 @NgModule({

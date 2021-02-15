@@ -15,10 +15,10 @@ export class NewGeneroComponent implements OnInit {
   genero: Genero = new Genero;
   entidad="genero";
 
-  formularioGenero: FormGroup;
+  formulario: FormGroup;
 
   constructor(private service:ServiceService, private router: Router, private _location: Location, private formBuilder: FormBuilder) {
-    this.formularioGenero = this.formBuilder.group({
+    this.formulario = this.formBuilder.group({
       nombre: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(50)])],
     })
    }
@@ -27,11 +27,11 @@ export class NewGeneroComponent implements OnInit {
   }
   
   guardarGenero() {
-     this.service.add(this.entidad, this.formularioGenero.value)
-    .subscribe(data=> {
-      alert("Agregado con éxito");
-      this.router.navigate(["genero/lista"]);
-    })
+    this.service.add(this.entidad, this.formulario.value)
+    .subscribe(
+        (data) => {this.router.navigate(['genero/lista'])},
+        (error) => {this.router.navigate(['home'])}
+      )
   }
 
   atras() {

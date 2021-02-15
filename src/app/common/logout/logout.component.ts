@@ -19,7 +19,7 @@ export class LogoutComponent implements OnInit {
     } else {
       console.log("Sin sesión", this.activatedRoute.snapshot.data.message)
       this.usuario = this.activatedRoute.snapshot.data.message;
-      router.navigate(['home'])
+      this.router.navigate(['home'])
     }
   }
 
@@ -30,6 +30,7 @@ export class LogoutComponent implements OnInit {
     this.service.logout()
     .subscribe(data=>{
       console.log(data)
+      this.router.navigate(['home'])
     })
   }
 

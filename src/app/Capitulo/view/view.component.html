@@ -1,1 +1,44 @@
-<p>view works!</p>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-12">
+            <h1 class="text-center">VISTA DE CAPÍTULO</h1>
+            <table class="table table-light table-striped table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>SERIE</th>
+                        <th>NOMBRE</th>
+                        <th>SINOPSIS</th>
+                        <th>DURACIÓN</th>
+                        <th>FECHA DE EMISIÓN</th>
+                        <th>TEMPORADA</th>
+                        <th>VECES VISTO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">{{capitulo.id}}</td>
+                        <td class="text-center">{{capitulo.temporada.serie.nombre}}</td>
+                        <td class="text-center">{{capitulo.nombre}}</td>
+                        <td class="text-center" style="width: 20%;">{{capitulo.sinopsis_capitulo}}</td>
+                        <td class="text-center">{{capitulo.duracion}} min.</td>
+                        <td class="text-center">{{capitulo.fecha_emision | date: 'dd/MM/yyyy'}}</td>
+                        <td class="text-center">{{capitulo.temporada.descripcion}}</td>
+                        <td class="text-center">{{capitulo.vecesvisto}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="botonera">
+                <button class="btn">
+                    <span class="material-icons" (click)="editar(capitulo.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+                </button>
+                <button class="btn">
+                    <span class="material-icons" (click)="eliminar(capitulo.id)" style="vertical-align: middle;">delete</span>
+                </button>
+                <button class="btn">
+                    <span class="material-icons" (click)="atras()" style="vertical-align: middle;">arrow_back</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

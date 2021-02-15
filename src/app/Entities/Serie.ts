@@ -1,4 +1,5 @@
 import { Genero } from "./Genero";
+import { Temporada } from "./Temporada";
 
 export class Serie {
     id: number;
@@ -10,4 +11,6 @@ export class Serie {
     fecha_fin: Date | undefined;
     id_file: number | undefined;
     genero: Genero;
+    temporadas: Array<Temporada> | undefined;
+
 }

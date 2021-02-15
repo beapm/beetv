@@ -24,7 +24,11 @@
         
         <div class="column2">
           
-          <p>{{serie.sinopsis_serie}} </p>
+          <p>{{showMore ? serie.sinopsis_serie : serie.sinopsis_serie | slice:0:200}}<span *ngIf="!showMore">... </span>
+            <a href="javascript:;" *ngIf="!showMore" (click)="showMore=true">Leer más</a>
+            <a href="javascript:;" *ngIf="showMore" (click)="showMore=false">Leer menos</a></p>
+       
+
           <p><strong>Idioma</strong>: {{serie.idioma}} </p>
           <p><strong>Duración</strong>: {{serie.duracion_media}} min.</p>
           <p><strong>Fecha de inicio</strong>: {{serie.fecha_inicio | date:'dd/MM/yyyy'}} </p>

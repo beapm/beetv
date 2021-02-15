@@ -12,17 +12,7 @@ export class MenuComponent implements OnInit {
   usuario: Usuario=new Usuario;
   status: string;
 
-  constructor(private router:Router, private activatedRoute: ActivatedRoute) { 
-    if (!this.activatedRoute.snapshot.data.message) {
-      console.log("no hay session", this.activatedRoute.snapshot.data.message)
-      this.status=this.activatedRoute.snapshot.data.status;
-
-    } else {
-      console.log("si hay session", this.activatedRoute.snapshot.data.message)
-      this.usuario = this.activatedRoute.snapshot.data.message;
-      console.log(this.usuario)
-    }
-  }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -54,7 +44,7 @@ export class MenuComponent implements OnInit {
   plistTipousuario() {
     this.router.navigate(["tipousuario/lista"])
   }
-    
+  
   plistTemporada() {
     this.router.navigate(["temporada/lista"])
   }

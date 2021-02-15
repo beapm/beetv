@@ -1,26 +1,28 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6">
-            <form class="form" [formGroup]="formularioGenero" (ngSubmit)="guardarGenero()">
+            <form class="form" [formGroup]="formulario" (ngSubmit)="guardarGenero()">
                 <h2>AGREGAR GÉNERO</h2>
                 <hr><br>
                 <div class="form-group">
                     <label for="nombre">Nombre: </label>
                     <input formControlName="nombre" name="nombre" type="text" class="form-controls" required>
-                    <div class="alert" *ngIf="formularioGenero.get('nombre').invalid">
-                        <div class="alert-danger alert-custom" *ngIf="formularioGenero.get('nombre').hasError('required') && formularioGenero.get('nombre').touched">
+                    <div class="alert" *ngIf="formulario.get('nombre').invalid">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('nombre').hasError('required') && formulario.get('nombre').touched">
                             Este campo debe ser rellenado
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioGenero.get('nombre').hasError('minlength') && formularioGenero.get('nombre').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('nombre').hasError('minlength') && formulario.get('nombre').touched">
                             Este campo debe tener más de 5 caracteres
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioGenero.get('nombre').hasError('maxlength') && formularioGenero.get('nombre').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('nombre').hasError('maxlength') && formulario.get('nombre').touched">
                             Este campo debe tener menos de 50 caracteres
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-success" type="submit">Guardar</button>
-                <button class="btn btn-success" (click)="atras()">Atrás</button>
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">Guardar</button>
+                    <button class="btn btn-success" (click)="atras()">Atrás</button>
+                </div>
             </form>
         </div>
     </div>

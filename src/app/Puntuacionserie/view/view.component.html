@@ -1,1 +1,36 @@
-<p>view works!</p>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-8">
+            <h1 class="text-center">VISTA DE PUNTUACIONSERIE</h1>
+            <table class="table table-light table-striped table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>SERIE</th>
+                        <th>USUARIO</th>
+                        <th>PUNTUACIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">{{puntuacionserie.id}}</td>
+                        <td class="text-center">{{puntuacionserie.serie.nombre}}</td>
+                        <td class="text-center">{{puntuacionserie.usuario.login}}</td>
+                        <td class="text-center">{{puntuacionserie.puntuacion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="botonera">
+                <button class="btn">
+                    <span class="material-icons" (click)="editar(puntuacionserie.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+                </button>
+                <button class="btn">
+                    <span class="material-icons" (click)="eliminar(puntuacionserie.id)" style="vertical-align: middle;">delete</span>
+                </button>
+                <button class="btn">
+                    <span class="material-icons" (click)="atras()" style="vertical-align: middle;">arrow_back</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

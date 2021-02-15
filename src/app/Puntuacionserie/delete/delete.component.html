@@ -1,1 +1,31 @@
-<p>delete works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form class="form" action="">
+                <h2>ELIMINAR PUNTUACIONSERIE</h2><hr><br>
+                <div class="form-group">
+                    <label for="id">ID: </label>
+                    <input [(ngModel)]="puntuacionserie.id" name="id" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Puntuación: </label>
+                    <input [(ngModel)]="puntuacionserie.puntuacion" name="nombre" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="apellido1">Serie: </label>
+                    <input [(ngModel)]="puntuacionserie.serie.nombre" name="apellido1" type="text" class="form-controls" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="apellido2">Usuario: </label>
+                    <input [(ngModel)]="puntuacionserie.usuario.login" name="apellido2" type="text" class="form-controls" readonly>
+                </div>
+                <hr><br>
+                <div class="botonera">
+                    <h3>¿Seguro que desea eliminar este objeto? </h3>
+                    <button class="btn btn-success" (click)="eliminar(puntuacionserie)">SÍ</button>
+                    <button class="btn btn-success" (click)="atras()">NO</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

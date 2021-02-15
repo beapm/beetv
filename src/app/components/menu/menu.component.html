@@ -8,18 +8,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav w-100">
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
+                    <a class="nav-link" [routerLink]="['home']" routerLinkActive="active"><i class="fas fa-home"></i> Home</a>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Usuarios
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-users"></i> Usuarios</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistUsuario()" style="cursor: pointer">Lista de
-                                Usuarios</a></li>
-                        <li><a class="dropdown-item" (click)="addUsuario()" style="cursor: pointer">Agregar Usuario</a>
+                        <li><a class="dropdown-item" (click)="plistUsuario()" style="cursor: pointer"><i class="fas fa-list-ol"></i> Lista de Usuarios</a></li>
+                        <li><a class="dropdown-item" (click)="addUsuario()" style="cursor: pointer"><i class="fas fa-plus"></i> Agregar Usuario</a>
                         </li>
 
                     </ul>
@@ -27,118 +24,103 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Tipousuario
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-address-card"></i> Tipousuario</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistTipousuario()" style="cursor: pointer">Lista de
-                                Tipousuario</a></li>
+                        <li><a class="dropdown-item" (click)="plistTipousuario()" style="cursor: pointer"><i class="fas fa-list-ol"></i> Lista de Tipousuario</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Géneros
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-book-open"></i> Géneros</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistGenero()" style="cursor: pointer">Lista de
-                                Géneros</a></li>
-                        <li><a class="dropdown-item" (click)="addGenero()" style="cursor: pointer">Agregar Género</a>
+                        <li><a class="dropdown-item" (click)="plistGenero()" style="cursor: pointer"><i class="fas fa-list-ol"></i> Lista de Géneros</a></li>
+                        <li><a class="dropdown-item" (click)="addGenero()" style="cursor: pointer"><i class="fas fa-plus"></i> Agregar Género</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Series
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-caret-square-right"></i> Series</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistSerie()" style="cursor: pointer">Lista de Series</a>
+                        <li><a class="dropdown-item" (click)="plistSerie()" style="cursor: pointer"><i class="fas fa-list-ol"></i> Lista de Series</a>
                         </li>
-                        <li><a class="dropdown-item" (click)="addSerie()" style="cursor: pointer">Agregar Serie</a></li>
+                        <li><a class="dropdown-item" (click)="addSerie()" style="cursor: pointer"><i class="fas fa-plus"></i> Agregar Serie</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Temporadas
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-film"></i> Temporadas</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistTemporada()" style="cursor: pointer">Lista de Temporadas</a></li>
-                        <li><a class="dropdown-item" (click)="addTemporada()" style="cursor: pointer">Agregar Temporada</a></li>
+                        <li><a class="dropdown-item" (click)="plistTemporada()" style="cursor: pointer"><i class="fas fa-list-ol"></i> Lista de Temporadas</a></li>
+                        <li><a class="dropdown-item" (click)="addTemporada()" style="cursor: pointer"><i class="fas fa-plus"></i> Agregar Temporada</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Capítulos
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-folder"></i> Capítulos</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistCapitulo()" style="cursor: pointer">Lista de Capítulos</a></li>
-                        <li><a class="dropdown-item" (click)="addCapitulo()" style="cursor: pointer">Agregar Capítulo</a></li>
+                        <li><a class="dropdown-item" (click)="plistCapitulo()" style="cursor: pointer"><i class="fas fa-list-ol"></i> Lista de Capítulos</a></li>
+                        <li><a class="dropdown-item" (click)="addCapitulo()" style="cursor: pointer"><i class="fas fa-plus"></i> Agregar Capítulo</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Listas
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-check-circle"></i> Capítulosvistos</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistLista()" style="cursor: pointer">Lista de Listas</a>
+                        <li><a class="dropdown-item" (click)="plistCapitulovistos()" style="cursor: pointer"><i class="fas fa-list-ol"></i> Lista de Capítulosvistos</a></li>
+                        <li><a class="dropdown-item" (click)="addCapitulovistos()" style="cursor: pointer"><i class="fas fa-plus"></i> Agregar Capítulosvistos</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-list"></i> Listas</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" (click)="plistLista()" style="cursor: pointer"><i class="fas fa-list-ol"></i> Lista de Listas</a>
                         </li>
-                        <li><a class="dropdown-item" (click)="addLista()" style="cursor: pointer">Agregar Listas</a>
+                        <li><a class="dropdown-item" (click)="addLista()" style="cursor: pointer"><i class="fas fa-plus"></i> Agregar Listas</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Capítulosvistos
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-folder-open"></i> Contenidolista</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistCapitulovistos()" style="cursor: pointer">Lista de Capítulosvistos</a></li>
-                        <li><a class="dropdown-item" (click)="addCapitulovistos()" style="cursor: pointer">Agregar Capítulosvistos</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Contenidolista
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" (click)="plistContenidolista()" style="cursor: pointer">Lista de Contenidolista</a>
+                        <li><a class="dropdown-item" (click)="plistContenidolista()" style="cursor: pointer"><i class="fas fa-list-ol"></i> Lista de Contenidolista</a>
                         </li>
-                        <li><a class="dropdown-item" (click)="addContenidolista()" style="cursor: pointer">Agregar Capítulos</a></li>
+                        <li><a class="dropdown-item" (click)="addContenidolista()" style="cursor: pointer"><i class="fas fa-plus"></i> Agregar Capítulos</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Puntuaciónserie
-                    </a>
+                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-star"></i> Puntuaciónserie</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" (click)="plistPuntuacionserie()" style="cursor: pointer">Lista de Puntuaciónserie</a>
                         </li>
-                        <li><a class="dropdown-item" (click)="addPuntuacionserie()" style="cursor: pointer">Agregar Puntuaciónserie</a></li>
+                        <li><a class="dropdown-item" (click)="addPuntuacionserie()" style="cursor: pointer"><i class="fas fa-plus"></i> Agregar Puntuaciónserie</a></li>
                     </ul>
                 </li>
 
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['informes']" routerLinkActive="active"><i class="fas fa-file-download"></i> Informes</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['login']" routerLinkActive="active">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['logout']" routerLinkActive="active">Logout</a>
+                    <a class="nav-link" [routerLink]="['logout']" routerLinkActive="active"> Logout</a>
                 </li>
             </ul>
-
         </div>
     </div>
 </nav>

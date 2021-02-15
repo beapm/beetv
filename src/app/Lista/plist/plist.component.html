@@ -23,8 +23,8 @@
                     <tr *ngFor="let lista of listas | paginate:page_size:page_number">
                         <td class="text-center">{{lista.id}}</td>
                         <td class="text-center">{{lista.nombre}}</td>
-                        <td style="width: 30%;">{{lista.usuario.nombre}}</td>
-                        <td class="text-center">{{lista.contendios}}</td>
+                        <td class="text-center">{{lista.usuario.login}}</td>
+                        <td class="text-center">{{lista.contenidos}}</td>
                         <td class="text-center">
                             <button class="btn btn-success">
                                 <span class="material-icons" (click)="ver(lista.id)" style="vertical-align: middle;">visibility</span>

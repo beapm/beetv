@@ -1,0 +1,19 @@
+.btn {
+    margin-left: 10px;
+    border-radius: 50%; 
+    background-color: #e4d7a1;
+}
+
+.btn:hover {
+    background-color: #99894b;
+    color: white;
+}
+
+.botonera {
+    display: flex;
+    background-color: #806721;
+    color: white;
+    border-radius: 100px;
+    padding: 1%;
+    justify-content:flex-end;
+}

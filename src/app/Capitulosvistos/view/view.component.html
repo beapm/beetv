@@ -1,1 +1,41 @@
-<p>view works!</p>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-8">
+            <h1 class="text-center">VISTA DE CAPITULOSVISTOS</h1>
+            <table class="table table-light table-striped table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th>ID</th>
+                        <th>USUARIO</th>
+                        <th>CAPÍTULO</th>
+                        <th>SERIE</th>
+                        <th>VISTO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">{{capitulosvistos.id}}</td>
+                        <td class="text-center">{{capitulosvistos.usuario.login}}</td>
+                        <td class="text-center">{{capitulosvistos.capitulo.nombre}}</td>
+                        <td class="text-center">{{capitulosvistos.capitulo.temporada.serie.nombre}}</td>
+                        <td class="text-center">
+                            <input type="checkbox" name="visto" *ngIf="capitulosvistos.visto" checked disabled>
+                            <input type="checkbox" name="visto" *ngIf="!capitulosvistos.visto" disabled>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="botonera">
+                <button class="btn">
+                    <span class="material-icons" (click)="editar(capitulosvistos.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+                </button>
+                <button class="btn">
+                    <span class="material-icons" (click)="eliminar(capitulosvistos.id)" style="vertical-align: middle;">delete</span>
+                </button>
+                <button class="btn">
+                    <span class="material-icons" (click)="atras()" style="vertical-align: middle;">arrow_back</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

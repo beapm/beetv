@@ -1,20 +1,20 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6">
-            <form class="form" [formGroup]="formularioUsuario" (ngSubmit)="guardar()">
+            <form class="form" [formGroup]="formulario" (ngSubmit)="guardar()">
                 <h2>REGISTRAR USUARIO</h2>
                 <hr><br>
                 <div class="form-group">
                     <label for="nombre">Nombre: </label>
                     <input formControlName="nombre" name="nombre" type="text" class="form-controls" required>
-                    <div class="alert" *ngIf="formularioUsuario.get('nombre').invalid">
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('nombre').hasError('required') && formularioUsuario.get('nombre').touched">
+                    <div class="alert" *ngIf="formulario.get('nombre').invalid">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('nombre').hasError('required') && formulario.get('nombre').touched">
                             Este campo debe ser rellenado
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('nombre').hasError('minlength') && formularioUsuario.get('nombre').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('nombre').hasError('minlength') && formulario.get('nombre').touched">
                             Este campo debe tener más de 5 caracteres
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('nombre').hasError('maxlength') && formularioUsuario.get('nombre').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('nombre').hasError('maxlength') && formulario.get('nombre').touched">
                             Este campo debe tener menos de 50 caracteres
                         </div>
                     </div>
@@ -22,14 +22,14 @@
                 <div class="form-group">
                     <label for="apellido1">Primer apellido: </label>
                     <input formControlName="apellido1" name="apellido1" type="text" class="form-controls" required>
-                    <div class="alert" *ngIf="formularioUsuario.get('apellido1').invalid">
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('apellido1').hasError('required') && formularioUsuario.get('apellido2').touched">
+                    <div class="alert" *ngIf="formulario.get('apellido1').invalid">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('apellido1').hasError('required') && formulario.get('apellido2').touched">
                             Este campo debe ser rellenado
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('apellido2').hasError('minlength') && formularioUsuario.get('apellido2').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('apellido2').hasError('minlength') && formulario.get('apellido2').touched">
                             Este campo debe tener más de 5 caracteres
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('apellido2').hasError('maxlength') && formularioUsuario.get('apellido2').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('apellido2').hasError('maxlength') && formulario.get('apellido2').touched">
                             Este campo debe tener menos de 50 caracteres
                         </div>
                     </div>
@@ -37,14 +37,14 @@
                 <div class="form-group">
                     <label for="apellido2">Segundo apellido: </label>
                     <input formControlName="apellido2" name="apellido2" type="text" class="form-controls" required>
-                    <div class="alert" *ngIf="formularioUsuario.get('apellido2').invalid">
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('apellido2').hasError('required') && formularioUsuario.get('apellido2').touched">
+                    <div class="alert" *ngIf="formulario.get('apellido2').invalid">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('apellido2').hasError('required') && formulario.get('apellido2').touched">
                             Este campo debe ser rellenado
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('apellido2').hasError('minlength') && formularioUsuario.get('apellido2').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('apellido2').hasError('minlength') && formulario.get('apellido2').touched">
                             Este campo debe tener más de 5 caracteres
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('apellido2').hasError('maxlength') && formularioUsuario.get('apellido2').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('apellido2').hasError('maxlength') && formulario.get('apellido2').touched">
                             Este campo debe tener menos de 50 caracteres
                         </div>
                     </div>
@@ -52,14 +52,14 @@
                 <div class="form-group">
                     <label for="email">Email: </label>
                     <input formControlName="email" name="email" type="email" class="form-controls" required>
-                    <div class="alert" *ngIf="formularioUsuario.get('email').invalid">
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('email').hasError('required') && formularioUsuario.get('email').touched">
+                    <div class="alert" *ngIf="formulario.get('email').invalid">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('email').hasError('required') && formulario.get('email').touched">
                             Este campo debe ser rellenado
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('email').hasError('minlength') && formularioUsuario.get('email').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('email').hasError('minlength') && formulario.get('email').touched">
                             Este campo debe tener más de 5 caracteres
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('email').hasError('maxlength') && formularioUsuario.get('email').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('email').hasError('maxlength') && formulario.get('email').touched">
                             Este campo debe tener menos de 50 caracteres
                         </div>
                     </div>
@@ -67,14 +67,14 @@
                 <div class="form-group">
                     <label for="login">Nombre de usuario: </label>
                     <input formControlName="login" name="login" type="text" class="form-controls" required>
-                    <div class="alert" *ngIf="formularioUsuario.get('login').invalid">
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('login').hasError('required') && formularioUsuario.get('login').touched">
+                    <div class="alert" *ngIf="formulario.get('login').invalid">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('login').hasError('required') && formulario.get('login').touched">
                             Este campo debe ser rellenado
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('login').hasError('minlength') && formularioUsuario.get('login').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('login').hasError('minlength') && formulario.get('login').touched">
                             Este campo debe tener más de 5 caracteres
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('login').hasError('maxlength') && formularioUsuario.get('login').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('login').hasError('maxlength') && formulario.get('login').touched">
                             Este campo debe tener menos de 50 caracteres
                         </div>
                     </div>
@@ -82,14 +82,14 @@
                 <div class="form-group">
                     <label for="password">Contraseña: </label>
                     <input formControlName="password" name="password" type="password" class="form-controls" required>
-                    <div class="alert" *ngIf="formularioUsuario.get('password').invalid">
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('password').hasError('required') && formularioUsuario.get('password').touched">
+                    <div class="alert" *ngIf="formulario.get('password').invalid">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('password').hasError('required') && formulario.get('password').touched">
                             Este campo debe ser rellenado
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('password').hasError('minlength') && formularioUsuario.get('password').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('password').hasError('minlength') && formulario.get('password').touched">
                             Este campo debe tener más de 5 caracteres
                         </div>
-                        <div class="alert-danger alert-custom" *ngIf="formularioUsuario.get('password').hasError('maxlength') && formularioUsuario.get('password').touched">
+                        <div class="alert-danger alert-custom" *ngIf="formulario.get('password').hasError('maxlength') && formulario.get('password').touched">
                             Este campo debe tener menos de 50 caracteres
                         </div>
                     </div>
@@ -103,9 +103,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="alert" *ngIf="formularioUsuario.get('tipousuario.id').invalid">
+                    <div class="alert" *ngIf="formulario.get('tipousuario.id').invalid">
                         <div class="alert-danger alert-custom"
-                            *ngIf="formularioUsuario.get('tipousuario.id').hasError('required') && formularioUsuario.get('tipousuario.id').touched">
+                            *ngIf="formulario.get('tipousuario.id').hasError('required') && formulario.get('tipousuario.id').touched">
                             Este campo debe ser rellenado
                         </div>
                     </div>

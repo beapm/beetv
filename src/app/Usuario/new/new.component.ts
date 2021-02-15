@@ -18,10 +18,10 @@ export class NewUsuarioComponent implements OnInit {
 
   tipousuarios:Tipousuario[] =  Array();
 
-  formularioUsuario: FormGroup;
+  formulario: FormGroup;
 
   constructor(private service: ServiceService, private router: Router, private _location: Location, private formBuilder: FormBuilder) {
-    this.formularioUsuario = this.formBuilder.group({
+    this.formulario = this.formBuilder.group({
       nombre: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(50)])],
       apellido1: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(1000)])],
       apellido2: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(1000)])],
@@ -37,19 +37,17 @@ export class NewUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(JSON.stringify(this.formularioUsuario.value));
     this.service.getPlist('tipousuario')
     .subscribe(data => {this.tipousuarios = data;});
     console.log(this.tipousuarios);
   }
 
   guardar() {
-    this.service.add(this.entidad, this.formularioUsuario.value)
-      .subscribe(data => {
-        alert("Agregado con éxito");
-        console.log(data)
-        this.router.navigate(["usuario/lista"]);
-      })
+    this.service.add(this.entidad, this.formulario.value)
+    .subscribe(
+        (data) => {this.router.navigate(['usuario/lista'])},
+        (error) => {this.router.navigate(['home'])}
+      )
   }
 
   atras() {
