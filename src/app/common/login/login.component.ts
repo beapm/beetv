@@ -37,5 +37,9 @@ export class LoginComponent implements OnInit {
     }); 
 
   }  
+
+  nuevoUsuario() {
+    this.router.navigate(['registro']);
+  }
 }
  

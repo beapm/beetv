@@ -118,4 +118,27 @@ export class ServiceService {
     }
     return this.http.get<any>(this.Url + 'serie/maspuntuadas', httpOptions)
   }
+  
+    temporadasXSerie(id: number) {
+      let httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        }),
+        withCredentials: true
+      }
+      return this.http.get<any>(this.Url + '/temporada/serie/' + id, httpOptions)
+    }
+  
+  
+    capitulosXTemporada(id: number) {
+      let httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        }),
+        withCredentials: true
+      }
+      return this.http.get<any>(this.Url + '/capitulo/temporada/' + id, httpOptions)
+    }
+  
+  
 }

@@ -40,18 +40,7 @@
                 </div>
                 <div class="form-group">
                     <div formGroupName="usuario">
-                        <div class="form-group">
-                            <label for="usuario">Usuario: </label>
-                            <select formControlName="id" class="form-control" name="id">
-                                <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{usuario.login}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="alert" *ngIf="formulario.get('usuario.id').invalid">
-                        <div class="alert-danger alert-custom"
-                            *ngIf="formulario.get('usuario.id').hasError('required') && formulario.get('usuario.id').touched">
-                            Este campo debe ser rellenado
-                        </div>
+                        <input [(ngModel)]="usuarioSesion.login" formControlName="login" type="text" class="form-control" required>
                     </div>
                 </div>
                 

@@ -19,7 +19,7 @@ export class NewPuntuacionserieComponent implements OnInit {
   entidad = "puntuacionserie";
 
   series:Serie[] =  Array();
-  usuarios:Usuario[] =  Array();
+  usuarioSesion:Usuario = new Usuario();
 
   formulario: FormGroup;
 
@@ -30,7 +30,7 @@ export class NewPuntuacionserieComponent implements OnInit {
         id: ['', Validators.required],
       }),
       usuario: this.formBuilder.group({
-        id: ['', Validators.required],
+        login: ['', Validators.required],
       })
     });
   }
@@ -39,8 +39,13 @@ export class NewPuntuacionserieComponent implements OnInit {
   ngOnInit(): void {
     this.service.getPlist('serie')
     .subscribe(data => {this.series = data;});
-    this.service.getPlist('usuario')
-    .subscribe(data => {this.usuarios = data;});
+
+    this.service.checkSession().subscribe((data)=>
+    {
+        this.usuarioSesion=data.body;
+        console.log(this.usuarioSesion);
+        console.log(data);
+      })
   }
   
   guardar(): void {

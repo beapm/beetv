@@ -69,4 +69,15 @@
     transform: translateY(1px);
   }
   
-  
+  a {
+    color: white;
+    font-size: 1.1em;
+  }
+
+  a:hover {
+    color: gray;
+  }
+
+  a:hover {
+    cursor:pointer;
+   }

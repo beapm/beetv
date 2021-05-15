@@ -1,52 +1,73 @@
 <div class="movie-card">
-  
-    <div class="container">
-      
-      <img src="http://localhost:8082/file/{{imagen}}" alt="cover" class="cover" />
-          
-      <div class="hero">
-              
-        <div class="details">
-        
-          <div class="title1">{{serie.nombre | titlecase}}</div>   
-          
-          <span class="likes">{{nota | number:'1.1-1'}}</span>
-          
-        </div>
-        
-      </div>
-      
-      <div class="description">
-        
-        <div class="column1">
-          <span class="tag">{{genero}}</span>
-        </div>
-        
-        <div class="column2">
-          
-          <p>{{showMore ? serie.sinopsis_serie : serie.sinopsis_serie | slice:0:200}}<span *ngIf="!showMore">... </span>
-            <a href="javascript:;" *ngIf="!showMore" (click)="showMore=true">Leer más</a>
-            <a href="javascript:;" *ngIf="showMore" (click)="showMore=false">Leer menos</a></p>
-       
 
-          <p><strong>Nº Temporadas</strong>: {{serie.temporadas}} </p>
-          <p><strong>Idioma</strong>: {{serie.idioma}} </p>
-          <p><strong>Duración</strong>: {{serie.duracion_media}} min.</p>
-          <p><strong>Fecha de inicio</strong>: {{serie.fecha_inicio | date:'dd/MM/yyyy'}} </p>
-                   
-          <div class="avatars">
-            <button class="btn">
-                <span class="material-icons" (click)="editarSerie(serie.id)" style="cursor: pointer; vertical-align: middle;">mode_edit</span>
-            </button>
-            <button class="btn">
-                <span class="material-icons" (click)="eliminarSerie(serie.id)" style="vertical-align: middle;">delete</span>
-            </button>
-            <button class="btn">
-                <span class="material-icons" (click)="atras()" style="vertical-align: middle;">arrow_back</span>
-            </button>           
-          </div>
-          
-        </div> 
-      </div>      
+  <div class="container">
+
+    <img src="http://localhost:8082/file/{{imagen}}" alt="cover" class="cover" />
+
+    <div class="hero">
+
+      <div class="details">
+
+        <div class="title1">{{serie.nombre | titlecase}}</div>
+
+        <span class="likes">{{nota | number:'1.1-1'}}</span>
+
+      </div>
+
     </div>
-  </div> 
+
+    <div class="description">
+
+      <div class="column1">
+        <span class="tag">{{genero}}</span><br><br>
+
+        <select class="select-dropdown" name="selectTemporada" [(ngModel)]="tempSeleccionada" (change)="temporadaSelecID()">
+          <option disabled selected [value]="0">Seleccionar temporada...</option>
+          <option [value]="temp.id" *ngFor="let temp of temps">{{temp.descripcion}}</option>
+        </select>
+
+<!--         <div class="avatars">
+          <button class="btn">
+            <span class="material-icons" (click)="editarSerie(serie.id)"
+              style="cursor: pointer; vertical-align: middle;">mode_edit</span>
+          </button>
+          <button class="btn">
+            <span class="material-icons" (click)="eliminarSerie(serie.id)" style="vertical-align: middle;">delete</span>
+          </button>
+          <button class="btn">
+            <span class="material-icons" (click)="atras()" style="vertical-align: middle;">arrow_back</span>
+          </button>
+        </div> -->
+      </div>
+
+      <div class="column2">
+
+        <p>{{showMore ? serie.sinopsis_serie : serie.sinopsis_serie | slice:0:200}}<span *ngIf="!showMore">... </span>
+          <a href="javascript:;" *ngIf="!showMore" (click)="showMore=true">Leer más</a>
+          <a href="javascript:;" *ngIf="showMore" (click)="showMore=false">Leer menos</a>
+        </p>
+
+        <p><strong>Idioma</strong>: {{serie.idioma}} </p>
+        <p><strong>Duración</strong>: {{serie.duracion_media}} min.</p>
+        <p><strong>Fecha de inicio</strong>: {{serie.fecha_inicio | date:'dd/MM/yyyy'}} </p>
+      </div>     
+    </div>
+    <br><br><br>
+
+      <div class="borderbox box1-6">
+        <div class="authorbox">
+          <div class="boxflex" *ngFor="let cap of caps, , index as idC">
+            <div class="borderbox  box1-6 box1-6">
+              <br>
+              <h4 class="h4titulo"><strong>Capítulo {{idC+1}} - </strong>{{cap.nombre}}</h4>
+              
+              <p class="capText">{{cap.fecha_emision | date: 'dd/MM/yyyy'}} - {{cap.duracion}} min.</p>
+              <p class="capText">{{cap.sinopsis_capitulo}}</p>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </div>
+</div>

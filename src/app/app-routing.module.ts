@@ -4,6 +4,7 @@ import { ResolverService } from '../app/Service/resolver.service';
 
 import { HomeComponent } from './common/home/home.component';
 import { LoginComponent } from './common/login/login.component';
+import { NuevoUsuarioComponent } from './common/login/nuevo-usuario/nuevo-usuario.component';
 import { LogoutComponent } from './common/logout/logout.component';
 
 import { PlistSerieComponent } from './Serie/plist/plist.component';
@@ -72,6 +73,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent, resolve: { message: ResolverService } },
+  { path: 'registro', component: NuevoUsuarioComponent, resolve: { message: ResolverService } },
   { path: 'logout', component: LogoutComponent },
 
   { path: 'serie/lista', component: PlistSerieComponent },

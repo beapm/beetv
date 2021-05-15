@@ -5,6 +5,8 @@ import { Location } from '@angular/common';
 import { Serie } from '../../Entities/Serie';
 import { Genero } from '../../Entities/Genero';
 import { Usuario } from 'src/app/Entities/Usuario';
+import { Temporada } from 'src/app/Entities/Temporada';
+import { Capitulo } from 'src/app/Entities/Capitulo';
 
 @Component({
   selector: 'app-view',
@@ -20,6 +22,12 @@ export class ViewSerieComponent implements OnInit {
   genero: String;
   idGenero:number;
   showMore: false;
+  temps: Temporada[] = Array();
+  caps: Capitulo[] = Array();
+  idTemporada: number;
+
+  tempSeleccionada: string = '0';
+  verSeleccion: string = '';
 
   usuario: Usuario | undefined;
 
@@ -29,7 +37,6 @@ export class ViewSerieComponent implements OnInit {
     } else {
       console.log("Sin sesión", this.activatedRoute.snapshot.data.message)
       this.usuario = this.activatedRoute.snapshot.data.message;
-      console.log(this.usuario.login)
     }
   }
 
@@ -48,8 +55,25 @@ export class ViewSerieComponent implements OnInit {
       this.serie=data;
       this.nota =data;
     })
+
+    this.service.temporadasXSerie(+id)
+    .subscribe(data=>{
+      this.temps=data.content;
+    })
+
   }
 
+  temporadaSelecID() {
+    // Pasamos el valor seleccionado a la variable verSeleccion
+    this.verSeleccion = this.tempSeleccionada;
+    this.idTemporada = +this.tempSeleccionada;
+    
+    this.service.capitulosXTemporada(this.idTemporada)
+    .subscribe(data=>{
+      this.caps=data.content;
+      console.log(this.caps)
+    })
+}
   editarSerie(id:number) {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["serie/editar",+id])
@@ -63,4 +87,6 @@ export class ViewSerieComponent implements OnInit {
    atras() {
     this._location.back();
   }
+
+
 }
