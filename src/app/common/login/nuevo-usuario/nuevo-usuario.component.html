@@ -5,29 +5,59 @@
       </div>
       <div class="row clearfix">
         <div class="">
-          <form>
-              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-              <input type="text" name="login" placeholder="Username" required />
-            </div>
-            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
-              <input type="email" name="email" placeholder="Email" required />
-            </div>
-            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-              <input type="password" name="password" placeholder="Contraseña" required />
-            </div>
-            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-              <input type="password" name="password" placeholder="Repetir contraseña" required />
-            </div>
-            <div class="row clearfix">
-              <div class="col_half">
-                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                  <input type="text" name="name" placeholder="Nombre" />
+
+          <form class="form" [formGroup]="formulario" (ngSubmit)="guardar()">
+
+            <div class="input_field form-group"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+              <input formControlName="login" name="login" type="text" class="form-controls" placeholder="Username" required />
+              <div class="alert" *ngIf="formulario.get('login').invalid">
+                <div class="alert-danger alert-custom"
+                    *ngIf="formulario.get('login').hasError('required') && formulario.get('login').touched">
+                    Este campo debe ser rellenado
+                </div>
+                <div class="alert-danger alert-custom"
+                    *ngIf="formulario.get('login').hasError('minlength') && formulario.get('login').touched">
+                    Este campo debe tener más de 3 caracteres
+                </div>
+                <div class="alert-danger alert-custom"
+                    *ngIf="formulario.get('login').hasError('maxlength') && formulario.get('login').touched">
+                    Este campo debe tener menos de 50 caracteres
                 </div>
               </div>
+            </div>
+
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input type="email" formControlName="email" class="form-controls" name="email" placeholder="Email" required />
+            </div>
+
+            <div class="input_field form-group"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input type="password" formControlName="password" class="form-controls" name="password" placeholder="Contraseña" required />
+            </div>
+
+<!--             <div class="input_field form-group"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input type="password" formControlName="email" class="form-controls" name="password" placeholder="Repetir contraseña" required />
+            </div> -->
+
+            <div class="input_field form-group"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input type="text" formControlName="nombre" class="form-controls" name="nombre" placeholder="Nombre" required />
+            </div>
+            
+            <div class="row clearfix">
+
               <div class="col_half">
-                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                  <input type="text" name="name" placeholder="Apellido" required />
+
+                <div class="input_field form-group"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" formControlName="apellido1" class="form-controls" name="apellido1" placeholder="Primer apellido" required />
                 </div>
+
+              </div>
+
+              <div class="col_half">
+
+                <div class="input_field form-group"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" formControlName="apellido2" class="form-controls" name="apellido2" placeholder="Segundo apellido" required />
+                </div>
+
               </div>
             </div>
             <input class="button" type="submit" value="Registrarse" />

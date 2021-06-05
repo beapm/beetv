@@ -26,7 +26,10 @@
                         <td class="text-center">{{usuario.apellido1}} {{usuario.apellido2}}</td>
                         <td class="text-center">{{usuario.email}}</td>
                         <td class="text-center">{{usuario.login}}</td>
-                        <td class="text-center">{{usuario.tipousuario.nombre}}</td>
+                        <td class="text-center">
+                            <a style="cursor: pointer; text-decoration: underline;" onmouseover="this.style.color='gray';" onmouseout="this.style.color='';"
+                             (click)="verTipousuario(usuario.tipousuario.id)">{{usuario.tipousuario.nombre}}</a>
+                        </td>
                         <td class="text-center">{{usuario.capitulosvistos}}</td>
                         <td class="text-center">{{usuario.listas}}</td>
                         <td class="text-center">{{usuario.puntuaciones}}</td>

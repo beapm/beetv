@@ -22,8 +22,13 @@
                 <tbody>
                     <tr *ngFor="let cont of contenidos | paginate:page_size:page_number">
                         <td class="text-center">{{cont.id}}</td>
-                        <td class="text-center">{{cont.lista.nombre}}</td>
-                        <td style="width: 30%;">{{cont.serie.nombre}}</td>
+                        <td class="text-center">
+                            <a style="cursor: pointer; text-decoration: underline;" onmouseover="this.style.color='gray';" onmouseout="this.style.color='';"
+                            (click)="verLista(cont.lista.id)">{{cont.lista.nombre}}</a>
+                        </td>
+                        <td style="width: 30%;">
+                            <a style="cursor: pointer; text-decoration: underline;" onmouseover="this.style.color='gray';" onmouseout="this.style.color='';"
+                            (click)="verSerie(cont.serie.id)">{{cont.serie.nombre}}</a></td>
                         <td class="text-center"><input type="checkbox" name="siguiendo" *ngIf="cont.siguiendo" checked disabled> </td>
 
                         <td class="text-center">

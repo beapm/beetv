@@ -63,5 +63,9 @@ export class PlistUsuarioComponent implements OnInit {
     this.router.navigate(["usuario/eliminar",id])
   }
 
+  verTipousuario(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["tipousuario/ver", id])
+  }
 
 }

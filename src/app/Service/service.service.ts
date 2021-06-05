@@ -99,7 +99,7 @@ export class ServiceService {
     return this.http.delete<any>(this.Url + entidad + '/' + id, httpOptions)
   }
 
-  puntuacionSerie(id: number) {
+  puntuacionSerie(id: number) { // para obtener la nota que tiene la serie
     let httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -129,7 +129,6 @@ export class ServiceService {
       return this.http.get<any>(this.Url + '/temporada/serie/' + id, httpOptions)
     }
   
-  
     capitulosXTemporada(id: number) {
       let httpOptions = {
         headers: new HttpHeaders({
@@ -140,5 +139,35 @@ export class ServiceService {
       return this.http.get<any>(this.Url + '/capitulo/temporada/' + id, httpOptions)
     }
   
+    listasXUsuario(id: number) {
+      let httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        }),
+        withCredentials: true
+      }
+      return this.http.get<any>(this.Url + 'lista/usuario/' + id, httpOptions)
+    }
   
+    busqueda(nombre: String) {
+      let httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        }),
+        withCredentials: true
+      }
+      return this.http.get<any>(this.Url + 'serie/busqueda/'+nombre, httpOptions)
+    }
+
+    checkVistos(id_usuario: number, id_serie: number) {
+      let httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        }),
+        withCredentials: true
+      }
+      return this.http.get<any>(this.Url + 'capitulosvistos/check/'+id_usuario+'/'+id_serie, httpOptions)
+   
+    }
+
 }

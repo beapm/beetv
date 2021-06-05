@@ -29,6 +29,7 @@ import { DeleteUsuarioComponent } from './Usuario/delete/delete.component';
 import { EditUsuarioComponent } from './Usuario/edit/edit.component';
 import { NewUsuarioComponent } from './Usuario/new/new.component';
 import { ViewUsuarioComponent } from './Usuario/view/view.component';
+import { PerfilComponent } from './Usuario/perfil/perfil.component';
 
 import { PlistTemporadaComponent } from './Temporada/plist/plist.component';
 import { NewTemporadaComponent } from './Temporada/new/new.component';
@@ -67,6 +68,7 @@ import { EditPuntuacionserieComponent } from './Puntuacionserie/edit/edit.compon
 import { DeletePuntuacionserieComponent } from './Puntuacionserie/delete/delete.component';
 
 import { InformeslistaComponent } from './components/informeslista/informeslista.component'
+import { BusquedaComponent } from './common/busqueda/busqueda.component';
 
 const routes: Routes = [
 
@@ -75,6 +77,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, resolve: { message: ResolverService } },
   { path: 'registro', component: NuevoUsuarioComponent, resolve: { message: ResolverService } },
   { path: 'logout', component: LogoutComponent },
+  { path: 'busqueda/:nombre', component: BusquedaComponent },
 
   { path: 'serie/lista', component: PlistSerieComponent },
   { path: 'serie/ver/:id', component: ViewSerieComponent, resolve: { message: ResolverService } },
@@ -98,6 +101,7 @@ const routes: Routes = [
   { path: 'usuario/agregar', component: NewUsuarioComponent },
   { path: 'usuario/editar/:id', component: EditUsuarioComponent },
   { path: 'usuario/eliminar/:id', component: DeleteUsuarioComponent },
+  { path: 'usuario/perfil/:id', component: PerfilComponent },
 
   { path: 'temporada/lista', component: PlistTemporadaComponent },
   { path: 'temporada/ver/:id', component: ViewTemporadaComponent },

@@ -1,3 +1,17 @@
 .nav-item{
     margin-right: 10px;
 }
+
+#form1 {
+    width: 150px;
+    height: 25px;
+}
+
+#botonbuscar {
+    height: 25px;
+    width: 25px;
+}
+
+.form-outline {
+    display: inline;
+}

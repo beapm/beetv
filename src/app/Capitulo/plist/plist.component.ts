@@ -43,4 +43,14 @@ export class PlistCapituloComponent implements OnInit {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["capitulo/eliminar",id])
   }
+
+  verSerie(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["serie/ver", id])
+  }
+
+  verTemporada(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["temporada/ver", id])
+  }
 }

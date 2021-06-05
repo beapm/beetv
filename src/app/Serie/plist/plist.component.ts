@@ -43,4 +43,14 @@ export class PlistSerieComponent implements OnInit {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["serie/eliminar",id])
   }
+
+  verGenero(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["genero/ver", id])
+  }
+
+  verSerie(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["serie/ver", id])
+  }
 }

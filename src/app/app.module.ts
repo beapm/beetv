@@ -15,14 +15,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { ReadmoreComponent } from './components/readmore/readmore.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-
+import { HelperService } from './Service/helper.service';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 import { HomeComponent } from './common/home/home.component';
 import { LoginComponent } from './common/login/login.component';
 import { LogoutComponent } from './common/logout/logout.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { BusquedaComponent } from './common/busqueda/busqueda.component';
 
 import { PlistSerieComponent } from './Serie/plist/plist.component';
 import { NewSerieComponent } from './Serie/new/new.component';
@@ -84,6 +84,7 @@ import { EditContenidolistaComponent } from './Contenidolista/edit/edit.componen
 import { DeleteContenidolistaComponent } from './Contenidolista/delete/delete.component';
 import { InformeslistaComponent } from './components/informeslista/informeslista.component';
 import { NuevoUsuarioComponent } from './common/login/nuevo-usuario/nuevo-usuario.component';
+import { PerfilComponent } from './Usuario/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -146,7 +147,8 @@ import { NuevoUsuarioComponent } from './common/login/nuevo-usuario/nuevo-usuari
     DeleteContenidolistaComponent,
     InformeslistaComponent,
     NuevoUsuarioComponent,
-
+    PerfilComponent,
+    BusquedaComponent,
 
   ],
   imports: [
@@ -161,10 +163,11 @@ import { NuevoUsuarioComponent } from './common/login/nuevo-usuario/nuevo-usuari
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    NgbModule
+    NgbModule,
+    NgxStarRatingModule
   ],
   providers: [
-    ServiceService,
+    ServiceService, HelperService,
     {
       provide: MatPaginatorIntl,
       useClass: CustomMatPaginatorIntl

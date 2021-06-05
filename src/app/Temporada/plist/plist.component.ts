@@ -43,4 +43,9 @@ export class PlistTemporadaComponent implements OnInit {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["temporada/eliminar",id])
   }
+
+  verSerie(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["serie/ver", id])
+  }
 }

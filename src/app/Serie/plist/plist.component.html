@@ -26,10 +26,13 @@
                 <tbody>
                     <tr *ngFor="let serie of series | paginate:page_size:page_number">
                         <td class="text-center">{{serie.id}}</td>
-                        <td class="text-center">{{serie.nombre}}</td>
+                        <td class="text-center"><a id="enlace" (click)="verSerie(serie.id)">{{serie.nombre}}</a></td>
                         <td style="width: 30%;">{{serie.sinopsis_serie}}</td>
                         <td class="text-center">{{serie.idioma}}</td>
-                        <td class="text-center">{{serie.genero.nombre}}</td>
+                        <td class="text-center">
+                            <a style="cursor: pointer; text-decoration: underline;" onmouseover="this.style.color='gray';" onmouseout="this.style.color='';"
+                            (click)="verGenero(serie.genero.id)">{{serie.genero.nombre}}</a>
+                            </td>
                         <td class="text-center">{{serie.duracion_media}} min.</td>
                         <td class="text-center">{{serie.fecha_inicio | date:'dd/MM/yyyy'}}</td>
                         <td class="text-center">{{serie.fecha_fin | date:'dd/MM/yyyy    '}}</td>

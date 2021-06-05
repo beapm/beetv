@@ -88,7 +88,7 @@
 	 position: absolute;
 	 top: 3px;
 	 margin-left: 12px;
-	 background: #c4af3d;
+	 background: rgb(196, 175, 61);
 	 border-radius: 5px;
 	 color: #544c21;
 	 font-size: 14px;
@@ -208,8 +208,6 @@ img {
 	box-shadow: none;
 }
 
-
-
 .borderbox {
 	width: 100%;
 	position: relative;
@@ -304,6 +302,20 @@ img {
 	font-size: 1rem;
 	margin-left: 10px;
   }
+
+  .box1-3 {
+	flex-grow: 0;
+	max-width: 5%;
+	flex-basis: 5%;
+	align-self: center;
+}
+
+.box1-6 {
+	flex-grow: 0;
+	max-width: 95%;
+	flex-basis: 93%;
+}
+
   
   .h4titulo{
 	color: black;
@@ -312,3 +324,26 @@ img {
   .h4titulo, .capText {
 	  margin-left: 10px;
   }
+
+  .cont {
+	  width: 93%;
+	  max-width: 350px;
+	  color: #ffffff;
+  }
+
+  div.stars {
+	width: 270px;
+	display: inline-flex;
+	align-items: center;
+}
+
+#puntos {
+	background-color: gray;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+button {
+	background: none;
+	border: 0px;
+}

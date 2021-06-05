@@ -30,7 +30,7 @@ export class NewPuntuacionserieComponent implements OnInit {
         id: ['', Validators.required],
       }),
       usuario: this.formBuilder.group({
-        login: ['', Validators.required],
+        id: ['', Validators.required],
       })
     });
   }

@@ -22,7 +22,10 @@
                 <tbody>
                     <tr *ngFor="let punt of puntuaciones | paginate:page_size:page_number">
                         <td class="text-center">{{punt.id}}</td>
-                        <td class="text-center">{{punt.serie.nombre}}</td>
+                        <td class="text-center">
+                            <a style="cursor: pointer; text-decoration: underline;" onmouseover="this.style.color='gray';" onmouseout="this.style.color='';"
+                            (click)="verSerie(punt.serie.id)">{{punt.serie.nombre}}</a>
+                        </td>
                         <td class="text-center">{{punt.usuario.login}}</td>
                         <td class="text-center">{{punt.puntuacion}}</td>
                         <td class="text-center">

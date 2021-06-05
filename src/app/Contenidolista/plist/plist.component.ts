@@ -45,4 +45,14 @@ export class PlistContenidolistaComponent implements OnInit {
     this.router.navigate(["contenidolista/eliminar",id])
   }
 
+  verLista(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["lista/ver", id])
+  }
+  
+  verSerie(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["serie/ver", id])
+  }
+
 }

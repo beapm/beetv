@@ -1,0 +1,20 @@
+<div class="container">
+
+    <div id="movie-card-list">
+        <!-- Card 1: Blade Runner -->
+        <div class="movie-card" *ngFor="let serie of series" style="background-image: url(http://localhost:8082/file/{{serie.id_file}}); width: 100%;">
+		<div class="color-overlay">
+            <div class="movie-content">
+                <div class="movie-header">
+                    <h1 class="movie-title">{{serie.nombre}}</h1>
+					<h4 class="movie-info">{{serie.genero.nombre}} | {{serie.temporadas}} Temporadas</h4>
+				</div>
+				<p class="movie-desc">{{serie.sinopsis_serie  | slice:0:150}}...</p>
+				<a class="btn btn-outline" (click)="verSerie(serie.id)">Ver ficha</a>
+
+			</div>
+		</div>
+	</div>
+    
+</div>
+</div>

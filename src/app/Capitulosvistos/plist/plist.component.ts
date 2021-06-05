@@ -45,4 +45,14 @@ export class PlistCapitulosvistosComponent implements OnInit {
     this.router.navigate(["capitulosvistos/eliminar",id])
   }
 
+  verUsuario(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["usuario/ver", id])
+  }
+
+  verCapitulo(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["capitulo/ver", id])
+  }
+
 }

@@ -25,7 +25,10 @@
                     <tr *ngFor="let temporada of temporadas | paginate:page_size:page_number">
                         <td class="text-center">{{temporada.id}}</td>
                         <td class="text-center">{{temporada.descripcion}}</td>
-                        <td class="text-center">{{temporada.serie.nombre}}</td>
+                        <td class="text-center">
+                            <a style="cursor: pointer; text-decoration: underline;" onmouseover="this.style.color='gray';" onmouseout="this.style.color='';"
+                             (click)="verSerie(temporada.serie.id)">{{temporada.serie.nombre}}</a>
+                        </td>
                         <td class="text-center">{{temporada.fecha_inicio | date:'dd/MM/yyyy'}}</td>
                         <td class="text-center">{{temporada.fecha_fin | date:'dd/MM/yyyy    '}}</td>
                         <td class="text-center">{{temporada.capitulos}}</td>

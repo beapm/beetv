@@ -22,8 +22,13 @@
                 <tbody>
                     <tr *ngFor="let caps of capitulosvistos | paginate:page_size:page_number">
                         <td class="text-center">{{caps.id}}</td>
-                        <td class="text-center">{{caps.usuario.nombre}}</td>
-                        <td style="width: 30%;">{{caps.capitulo.nombre}}</td>
+                        <td class="text-center">
+                            <a style="cursor: pointer; text-decoration: underline;" onmouseover="this.style.color='gray';" onmouseout="this.style.color='';"
+                            (click)="verUsuario(caps.usuario.id)">{{caps.usuario.nombre}}</a>
+                        </td>
+                        <td style="width: 30%;">
+                            <a style="cursor: pointer; text-decoration: underline;" onmouseover="this.style.color='gray';" onmouseout="this.style.color='';"
+                            (click)="verCapitulo(caps.capitulo.id)">{{caps.capitulo.nombre}}</a></td>
                         <td class="text-center"><input type="checkbox" name="visto" *ngIf="caps.visto" checked disabled> </td>
                         <td class="text-center">
                             <button class="btn btn-success">

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Serie } from 'src/app/Entities/Serie';
 import { Usuario } from 'src/app/Entities/Usuario';
+import { HelperService } from 'src/app/Service/helper.service';
+import { ServiceService } from 'src/app/Service/service.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,13 +13,49 @@ import { Usuario } from 'src/app/Entities/Usuario';
 export class MenuComponent implements OnInit {
 
   usuario: Usuario=new Usuario;
-  status: string;
+  visible: String | null;
 
-  constructor(private router:Router) { }
+  busquedaInput: String;
+
+  message: any;
+  messageUsu: any;
+  messageUsuarioID: any;
+
+  series: Serie[] = Array();
+
+  constructor(private router:Router, private activatedRoute: ActivatedRoute, private helper: HelperService, private service: ServiceService) {
+    if (!this.activatedRoute.snapshot.data.message) {
+      console.log("Sin sesión", this.activatedRoute.snapshot.data.message);
+    } else {
+      console.log("Sesión activa", this.activatedRoute.snapshot.data.message)
+      this.usuario = this.activatedRoute.snapshot.data.message.body;
+      console.log("menu", this.usuario)
+      router.navigate(['home']);
+    }
+
+   }
 
   ngOnInit(): void {
+    this.helper.customMessage.subscribe((msg) => {
+      this.message = msg;
+    });
+
+    this.helper.customMessageUsuario.subscribe((msg)=> {
+      this.messageUsu = msg;
+    })
+
+    this.helper.customMessageUsuarioID.subscribe((msg)=> {
+      this.messageUsuarioID = msg;
+    })
   }
-   
+  
+  buscarSerie(nombre: String) {
+    localStorage.setItem("nombre", nombre.toString());
+    this.router.navigate(["busqueda", nombre]);
+
+    this.busquedaInput='';
+  }
+
   plistSerie() {
     this.router.navigate(["serie/lista"])
   }
@@ -93,4 +132,7 @@ export class MenuComponent implements OnInit {
     this.router.navigate(["contenidolista/agregar"])
   }
   
+  perfilUsuario(id: number) {
+    this.router.navigate(["usuario/perfil", this.messageUsuarioID])
+  }
 }

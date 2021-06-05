@@ -4,3 +4,14 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+input.star:checked ~ label.star:before{
+	color: #846c02 !important;
+  }
+
+  label.star {
+    color: #806721 !important;
+    font-size: 29px !important;
+    padding: 5px !important;
+  }

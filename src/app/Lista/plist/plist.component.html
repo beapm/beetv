@@ -23,7 +23,10 @@
                     <tr *ngFor="let lista of listas | paginate:page_size:page_number">
                         <td class="text-center">{{lista.id}}</td>
                         <td class="text-center">{{lista.nombre}}</td>
-                        <td class="text-center">{{lista.usuario.login}}</td>
+                        <td class="text-center">
+                            <a style="cursor: pointer; text-decoration: underline;" onmouseover="this.style.color='gray';" onmouseout="this.style.color='';"
+                            (click)="verUsuario(lista.usuario.id)">{{lista.usuario.login}}</a>
+                        </td>
                         <td class="text-center">{{lista.contenidos}}</td>
                         <td class="text-center">
                             <button class="btn btn-success">

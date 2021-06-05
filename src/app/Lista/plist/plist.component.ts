@@ -54,4 +54,9 @@ export class PlistListaComponent implements OnInit {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["lista/eliminar",id])
   }
+
+  verUsuario(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["usuario/ver", id])
+  }
 }

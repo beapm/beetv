@@ -44,4 +44,9 @@ export class PlistPuntuacionserieComponent implements OnInit {
     localStorage.setItem("id", id.toString());
     this.router.navigate(["puntuacionserie/eliminar",id])
   }
+
+  verSerie(id:number) {
+    localStorage.setItem("id", id.toString());
+    this.router.navigate(["serie/ver", id])
+  }
 }
