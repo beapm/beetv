@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Genero } from 'src/app/Entities/Genero';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Location } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-delete',
@@ -13,7 +14,7 @@ export class DeleteGeneroComponent implements OnInit {
 
   genero: Genero = new Genero();
   entidad="genero";
-  constructor(private router:Router, private service: ServiceService, private _location: Location) { }
+  constructor(private router:Router, private service: ServiceService, private _location: Location, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.editar();
@@ -30,14 +31,39 @@ export class DeleteGeneroComponent implements OnInit {
   eliminar(genero: Genero) {
     let id=localStorage.getItem("id");
     this.service.delete(this.entidad, +id)
-      .subscribe(data => {
-        alert("Género eliminado con éxito");
-        this.router.navigate(["genero/lista"])
-      })
+      .subscribe(
+        (data) => {
+          this.guardado(),
+            setTimeout(() => { this.router.navigate(['genero/lista']); }, 2000);
+        },
+        (error) => {
+          this.error(),
+            setTimeout(() => { this.router.navigate(['home']); }, 2000);
+        }
+      )
   }
 
   atras() {
     this._location.back();
   }
 
+  guardado() {
+    this.dialog.open(ModalGuardado);
+  }
+
+  error() {
+    this.dialog.open(ModalError);
+  }
 }
+
+@Component({
+  selector: 'modalGuardado',
+  templateUrl: 'modalGuardado.html',
+})
+export class ModalGuardado { }
+
+@Component({
+  selector: 'modalError',
+  templateUrl: 'modalError.html',
+})
+export class ModalError { }

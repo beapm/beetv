@@ -109,10 +109,10 @@
           </div>
           <div class="borderbox box1-3 box1-3" >
             <button title="Capítulo no visto" (click)="booleanVisto=checkearVisto(usuarioSesion.id, cap.id)">
-              <div *ngIf="booleanVisto">
+              <div *ngIf="!booleanVisto">
                 <i class="fas fa-eye"></i>
               </div>
-              <div *ngIf="!booleanVisto">
+              <div *ngIf="booleanVisto">
                 <i class="fas fa-eye-slash"></i>
               </div>
              </button><!--BOTON VISTO O NO-->
